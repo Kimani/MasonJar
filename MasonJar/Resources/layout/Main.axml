@@ -1,13 +1,82 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    >
-<Button  
-    android:id="@+id/MyButton"
-    android:layout_width="fill_parent" 
-    android:layout_height="wrap_content" 
-    android:text="@string/Hello"
-    />
+              android:id="@+id/mainlayout"
+              android:orientation="vertical"
+              android:layout_width="fill_parent"
+              android:background="@drawable/picnicbkg"
+              android:layout_height="fill_parent">
+    <RelativeLayout android:background="@drawable/brightness"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent">
+
+        <!-- Top Row - Stick types and History Button -->
+        <RelativeLayout android:layout_width="fill_parent"
+                        android:layout_height="75dp"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginRight="15dp"
+                        android:layout_alignParentTop="true">
+
+          <!-- History Button -->
+          <ImageButton android:id="@+id/button_history"
+                       android:layout_alignParentTop="true"
+                       android:layout_alignParentRight="true"
+                       android:layout_width="55dp"
+                       android:layout_height="55dp"
+                       android:padding="0px"
+                       android:adjustViewBounds="true"
+                       android:scaleType="fitCenter"
+                       style="?android:attr/borderlessButtonStyle"
+                       android:background="@android:color/transparent"
+                       android:src="@drawable/historybutton"/>
+        </RelativeLayout>
+
+        <!-- Bottom Row - Edit and Tutorial -->
+        <RelativeLayout android:layout_width="fill_parent"
+                        android:layout_height="100dp"
+                        android:layout_marginBottom="15dp"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginRight="15dp"
+                        android:layout_alignParentBottom="true">
+
+            <!-- Edit Button -->
+            <ImageButton android:id="@+id/button_edit"
+                         android:layout_alignParentBottom="true"
+                         android:layout_alignParentLeft="true"
+                         android:layout_width="55dp"
+                         android:layout_height="55dp"
+                         android:padding="0px"
+                         android:adjustViewBounds="true"
+                         android:scaleType="fitCenter"
+                         style="?android:attr/borderlessButtonStyle"
+                         android:background="@android:color/transparent"
+                         android:src="@drawable/editbutton"/>
+
+            <!-- Help Button -->
+            <ImageButton android:id="@+id/button_help"
+                         android:layout_alignParentBottom="true"
+                         android:layout_alignParentRight="true"
+                         android:layout_width="55dp"
+                         android:layout_height="55dp"
+                         android:padding="0px"
+                         android:adjustViewBounds="true"
+                         android:scaleType="fitCenter"
+                         style="?android:attr/borderlessButtonStyle"
+                         android:background="@android:color/transparent"
+                         android:src="@drawable/helpbutton"/>
+        </RelativeLayout>
+
+        <!-- Center - Mason Jar and Sticks -->
+        <RelativeLayout android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:layout_centerInParent="true"
+                        android:paddingBottom="100dp"
+                        android:paddingTop="100dp">
+            <Button android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="@string/Hello" />
+        </RelativeLayout>
+
+    </RelativeLayout>
 </LinearLayout>
