@@ -2,4 +2,8 @@
 <resources>
     <string name="Hello">Hello World, Click Me!</string>
     <string name="ApplicationName">MasonJar</string>
+    <string name="tutorial_step1"><b>Step 1</b>: Add sticks to jar!</string>
+    <string name="tutorial_step2"><b>Step 2</b>: Rub the mason jar OR shake your device to mix up sticks!</string>
+    <string name="tutorial_step3"><b>Step 3</b>: Tap on a stick to draw it from the jar! Colored sticks lets you pick from a specific category. Question mark sticks are completely random!</string>
+    <string name="tutorial_step4"><b>Step 4</b>: Review history!</string>
 </resources>

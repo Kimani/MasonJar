@@ -1,0 +1,7 @@
+﻿<!-- http://stackoverflow.com/questions/3515264/can-i-change-the-android-startactivity-transition-animation -->
+<set xmlns:android="http://schemas.android.com/apk/res/android"
+     android:fillAfter="true">
+  <alpha android:fromAlpha="1.0"
+         android:toAlpha="0.0"
+         android:duration="500"/> //Time in milliseconds
+</set>

@@ -1,28 +1,30 @@
 // [Ready Design Corps] - [Mason Jar] - Copyright 2016
 
-using System;
 using System.Drawing;
 
-namespace MasonJar.Model
+namespace MasonJar.Model.Real
 {
-    public class Category
+    public class Category : ICategory
     {
         public string Title  { get; set; }
-        public Color  Color  { get; set; } // maybe make set assert if random is set.
-        public bool   Random { get; private set; }
+        public Color? Color  { get; set; }
 
         public Category()
         {
-            Random = true;
             Title = "";
-            Color = Color.Black;
+            Color = null;
         }
 
         public Category(Color c)
         {
-            Random = false;
             Color = c;
             Title = "";
+        }
+
+        public Category(Color c, string title)
+        {
+            Color = c;
+            Title = title;
         }
     }
 }
