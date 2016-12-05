@@ -1,30 +1,31 @@
 // [Ready Design Corps] - [Mason Jar] - Copyright 2016
 
+using System;
 using System.Drawing;
 
 namespace MasonJar.Model.Real
 {
     public class Category : ICategory
     {
-        public string Title  { get; set; }
-        public Color? Color  { get; set; }
-
-        public Category()
+        public string Title
         {
-            Title = "";
-            Color = null;
+            get { return _Title; }
+            set { if (_Title != value) { _Title = value; TitleUpdated(this, EventArgs.Empty); } }
         }
 
-        public Category(Color c)
+        public Color Color
         {
-            Color = c;
-            Title = "";
+            get { return _Color; }
+            set { if (_Color != value) { _Color = value; ColorUpdated(this, EventArgs.Empty); } }
         }
 
-        public Category(Color c, string title)
-        {
-            Color = c;
-            Title = title;
-        }
+        private string _Title = "";
+        private Color  _Color;
+
+        public event EventHandler TitleUpdated;
+        public event EventHandler ColorUpdated;
+
+        public Category(Color c)               { _Color = c; }
+        public Category(Color c, string title) { _Color = c; _Title = title; }
     }
 }

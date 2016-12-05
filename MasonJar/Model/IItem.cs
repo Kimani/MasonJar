@@ -1,10 +1,15 @@
 // [Ready Design Corps] - [Mason Jar] - Copyright 2016
 
+using System;
+
 namespace MasonJar.Model
 {
     public interface IItem
     {
-        ICategory Category { get; }
-        string    Content  { get; }
+        event EventHandler CategoryChanged;
+        event EventHandler ContentChanged;
+
+        ICategory Category { get; set; }
+        string    Content  { get; set; }
     }
 }

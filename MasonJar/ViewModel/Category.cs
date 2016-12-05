@@ -1,21 +1,32 @@
 // [Ready Design Corps] - [Mason Jar] - Copyright 2016
 
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-using Android.App;
-using Android.Content;
-using Android.OS;
-using Android.Runtime;
-using Android.Views;
-using Android.Widget;
+using System.Drawing;
 
 namespace MasonJar.ViewModel
 {
     public class Category
     {
-        private Model.ICategory BaseCategory { get; set; }
+        public Model.ICategory CategoryModel { get; private set; }
+        public Color  Color                  { get { return CategoryModel.Color; } set { CategoryModel.Color = value; } }
+        public string Title                  { get { return CategoryModel.Title; } set { CategoryModel.Title = value; } }
+
+        public event EventHandler CategoryUpdated;
+
+        public Category()
+        {
+            CategoryModel = null;
+        }
+
+        public Category(Model.ICategory categoryModel)
+        {
+            CategoryModel = categoryModel;
+            CategoryUpdated += CategoryModelUpdated;
+        }
+
+        private void CategoryModelUpdated(object sender, EventArgs args)
+        {
+            CategoryUpdated(sender, args);
+        }
     }
 }

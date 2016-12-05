@@ -8,8 +8,23 @@ namespace MasonJar.Model.Mock
 {
     class Category : ICategory
     {
-        public string Title  { get; set; }
-        public Color? Color  { get; set; }
+        public string Title
+        {
+            get { return _Title; }
+            set { if (_Title != value) { _Title = value; TitleUpdated(this, EventArgs.Empty); } }
+        }
+
+        public Color Color
+        {
+            get { return _Color; }
+            set { if (_Color != value) { _Color = value; ColorUpdated(this, EventArgs.Empty); } }
+        }
+
+        private string _Title = "";
+        private Color _Color;
+
+        public event EventHandler TitleUpdated;
+        public event EventHandler ColorUpdated;
 
         public Category()
         {

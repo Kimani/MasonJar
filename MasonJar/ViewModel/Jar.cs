@@ -1,7 +1,7 @@
 // [Ready Design Corps] - [Mason Jar] - Copyright 2016
 
+using System.Collections.Generic;
 using System.Runtime.CompilerServices;
-using MasonJar.Model;
 
 namespace MasonJar.ViewModel
 {
@@ -20,11 +20,44 @@ namespace MasonJar.ViewModel
             return _Instance;
         }
 
-        private IJar _Model;
+        private Model.IJar        _Model;
+        private List<Item>        _ActiveItems;
+        private List<Category>    _ActiveCategories;
+        private List<HistoryItem> _HistoryItems;
 
         public Jar()
         {
-            _Model = JarFactory.GetInstance(_UseMockData);
+            _Model = Model.JarFactory.GetInstance(_UseMockData);
+
+            // Create categories from the model.
+            foreach (Model.ICategory categoryModel in _Model.Categories)
+            {
+                _ActiveCategories.Add(new Category(categoryModel));
+            }
+
+            // Create items from the model, and reference our view model categories.
+            foreach (Model.IItem itemModel in _Model.Items)
+            {
+                Category categoryViewModel = null;
+                if (itemModel.Category != null)
+                {
+                    foreach (Category c in _ActiveCategories)
+                    {
+                        if (c.CategoryModel == itemModel.Category)
+                        {
+                            categoryViewModel = c;
+                            break;
+                        }
+                    }
+                }
+                _ActiveItems.Add(new Item(categoryViewModel, itemModel));
+            }
+
+            // Create history items.
+            foreach (Model.IHistoryItem historyModel in _Model.History)
+            {
+                _HistoryItems.Add(new HistoryItem(historyModel));
+            }
         }
     }
 }
