@@ -11,13 +11,13 @@ namespace MasonJar.Model.Mock
         public string Title
         {
             get { return _Title; }
-            set { if (_Title != value) { _Title = value; TitleUpdated(this, EventArgs.Empty); } }
+            set { if (_Title != value) { _Title = value; TitleUpdated?.Invoke(this, EventArgs.Empty); } }
         }
 
         public Color Color
         {
             get { return _Color; }
-            set { if (_Color != value) { _Color = value; ColorUpdated(this, EventArgs.Empty); } }
+            set { if (_Color != value) { _Color = value; ColorUpdated?.Invoke(this, EventArgs.Empty); } }
         }
 
         private string _Title = "";
@@ -29,8 +29,8 @@ namespace MasonJar.Model.Mock
         public Category()
         {
             Random r = new Random(GetHashCode());
-            Title = "Random Item #" + (1 + (r.Next() % 999));
-            Color = ((CategorySwatch)System.Enum.GetValues(typeof(CategorySwatch)).GetValue(r.Next() % 16)).GetColor();
+            _Title = "Random Item #" + (1 + (r.Next() % 999));
+            _Color = ((CategorySwatch)System.Enum.GetValues(typeof(CategorySwatch)).GetValue(r.Next() % 16)).GetColor();
         }
     }
 }

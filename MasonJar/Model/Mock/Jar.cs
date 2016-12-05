@@ -28,11 +28,14 @@ namespace MasonJar.Model.Mock
             for (int i = 0; i < MOCK_CATEGORY_COUNT; ++i) { Categories.Add(new Category()); }
             for (int i = 0; i < MOCK_ITEM_COUNT; ++i)     { Items.Add(new Item(Categories)); }
             for (int i = 0; i < MOCK_HISTORY_COUNT; ++i)  { History.Add(new HistoryItem()); }
+
+            // Sort the history items by timestamp.
+            History.Sort((x, y) => y.Timestamp.CompareTo(x.Timestamp));
         }
 
-        public void AddNewCategory()           { Categories.Add(new Category()); CategoryCollectionChanged(this, EventArgs.Empty); }
-        public void AddNewItem()               { Items.Add(new Item(Categories)); ItemCollectionChanged(this, EventArgs.Empty); }
-        public void RemoveItem(IItem i)        { if (Items.Remove(i)) { ItemCollectionChanged(this, EventArgs.Empty); } }
-        public void MoveItemToHistory(IItem i) { if (Items.Remove(i)) { History.Add(new HistoryItem()); HistoryCollectionChanged(this, EventArgs.Empty); } }
+        public void AddNewCategory()           { Categories.Add(new Category()); CategoryCollectionChanged?.Invoke(this, EventArgs.Empty); }
+        public void AddNewItem()               { Items.Add(new Item(Categories)); ItemCollectionChanged?.Invoke(this, EventArgs.Empty); }
+        public void RemoveItem(IItem i)        { if (Items.Remove(i)) { ItemCollectionChanged?.Invoke(this, EventArgs.Empty); } }
+        public void MoveItemToHistory(IItem i) { if (Items.Remove(i)) { History.Add(new HistoryItem()); HistoryCollectionChanged?.Invoke(this, EventArgs.Empty); } }
     }
 }

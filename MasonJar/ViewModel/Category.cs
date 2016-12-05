@@ -26,7 +26,7 @@ namespace MasonJar.ViewModel
 
         private void CategoryModelUpdated(object sender, EventArgs args)
         {
-            CategoryUpdated(sender, args);
+            CategoryUpdated?.Invoke(sender, args);
         }
     }
 }

@@ -9,7 +9,7 @@ namespace MasonJar.ViewModel
     {
         public Category Category { get { return _ItemCategory; }      set { SetCategory(value, false); } }
         public string   Content  { get { return _ItemModel.Content; } set { _ItemModel.Content = value; } }
-        public Color?   Color    { get { return (Category != null) ? Category.Color : null; } }
+        public Color?   Color    { get { return (Category != null) ? Category.Color : (Color?)null; } }
 
         public event EventHandler ItemChanged;
 
@@ -29,7 +29,10 @@ namespace MasonJar.ViewModel
             if (_ItemCategory != category)
             {
                 // Unregister current category events.
-                _ItemCategory.CategoryUpdated -= ItemOrCategoryChanged;
+                if (_ItemCategory != null)
+                {
+                    _ItemCategory.CategoryUpdated -= ItemOrCategoryChanged;
+                }
 
                 // Update the item model with the new category.
                 _ItemModel.Category = (category != null) ? category.CategoryModel : null;
@@ -45,7 +48,7 @@ namespace MasonJar.ViewModel
 
         private void ItemOrCategoryChanged(object sender, EventArgs args)
         {
-            ItemChanged(sender, args);
+            ItemChanged?.Invoke(sender, args);
         }
     }
 }

@@ -75,6 +75,7 @@
     <Compile Include="Common\ViewHelper.cs" />
     <Compile Include="EditActivity.cs" />
     <Compile Include="HistoryActivity.cs" />
+    <Compile Include="HistoryAdapter.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="Model\ICategory.cs" />
     <Compile Include="Model\IHistoryItem.cs" />
@@ -99,15 +100,20 @@
     <Compile Include="ViewModel\Stick.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="app.config" />
-    <None Include="GettingStarted.Xamarin" />
-    <None Include="packages.config" />
+    <None Include="Config\app.config" />
+    <None Include="Config\packages.config" />
     <None Include="Resources\AboutResources.txt" />
     <None Include="Assets\AboutAssets.txt" />
     <AndroidResource Include="Resources\layout\Edit.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\History.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\HistoryItem.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\HistoryItemWithCategory.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>
@@ -203,6 +209,12 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\anim\fadeout.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\stick.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\circle.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

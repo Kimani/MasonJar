@@ -33,7 +33,7 @@ namespace MasonJar.Model.Real
                     }
 
                     // Signal for the new category.
-                    CategoryChanged(this, EventArgs.Empty);
+                    CategoryChanged?.Invoke(this, EventArgs.Empty);
                 }
 
             }
@@ -51,7 +51,7 @@ namespace MasonJar.Model.Real
                 if (_Content != value)
                 {
                     _Content = value;
-                    ContentChanged(this, EventArgs.Empty);
+                    ContentChanged?.Invoke(this, EventArgs.Empty);
                 }
             }
         }
@@ -78,7 +78,7 @@ namespace MasonJar.Model.Real
 
         private void CategoryUpdated(object source, EventArgs args)
         {
-            CategoryChanged(source, args);
+            CategoryChanged?.Invoke(source, args);
         }
     }
 }

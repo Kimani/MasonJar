@@ -34,7 +34,7 @@ namespace MasonJar.Model.Mock
                     }
 
                     // Signal for the new category.
-                    CategoryChanged(this, EventArgs.Empty);
+                    CategoryChanged?.Invoke(this, EventArgs.Empty);
                 }
 
             }
@@ -52,7 +52,7 @@ namespace MasonJar.Model.Mock
                 if (_Content != value)
                 {
                     _Content = value;
-                    ContentChanged(this, EventArgs.Empty);
+                    ContentChanged?.Invoke(this, EventArgs.Empty);
                 }
             }
         }
@@ -78,7 +78,7 @@ namespace MasonJar.Model.Mock
 
         private void CategoryUpdated(object source, EventArgs args)
         {
-            CategoryChanged(source, args);
+            CategoryChanged?.Invoke(source, args);
         }
     }
 }

@@ -59,20 +59,20 @@ namespace MasonJar.Model.Real
 
             // Create the new category.
             _Categories.Add(new Category(nextColor));
-            CategoryCollectionChanged(this, EventArgs.Empty);
+            CategoryCollectionChanged?.Invoke(this, EventArgs.Empty);
         }
 
         public void AddNewItem()
         {
             _Items.Add(new Item());
-            ItemCollectionChanged(this, EventArgs.Empty);
+            ItemCollectionChanged?.Invoke(this, EventArgs.Empty);
         }
 
         public void RemoveItem(IItem i)
         {
             if (_Items.Remove(i))
             {
-                ItemCollectionChanged(this, EventArgs.Empty);
+                ItemCollectionChanged?.Invoke(this, EventArgs.Empty);
             }
         }
 
@@ -85,8 +85,8 @@ namespace MasonJar.Model.Real
                 _Items.Remove(i);
                 _History.Add(historyItem);
 
-                ItemCollectionChanged(this, EventArgs.Empty);
-                HistoryCollectionChanged(this, EventArgs.Empty);
+                ItemCollectionChanged?.Invoke(this, EventArgs.Empty);
+                HistoryCollectionChanged?.Invoke(this, EventArgs.Empty);
             }
         }
     }
