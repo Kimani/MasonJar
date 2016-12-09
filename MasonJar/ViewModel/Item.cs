@@ -5,7 +5,7 @@ using System.Drawing;
 
 namespace MasonJar.ViewModel
 {
-    public class Item
+    public class Item : Java.Lang.Object
     {
         public Category Category { get { return _ItemCategory; }      set { SetCategory(value, false); } }
         public string   Content  { get { return _ItemModel.Content; } set { _ItemModel.Content = value; } }

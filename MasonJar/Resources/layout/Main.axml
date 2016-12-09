@@ -6,19 +6,19 @@
               android:background="@drawable/picnicbkg"
               android:clipChildren="false"
               android:layout_height="fill_parent">
-    <RelativeLayout
-        android:background="@drawable/brightness"
-        android:clipChildren="false"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent">
+    <RelativeLayout android:background="@drawable/brightness"
+                    android:clipChildren="false"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent">
+
     <!-- Top Row - Stick types and History Button -->
-        <RelativeLayout
-            android:layout_width="fill_parent"
-            android:layout_height="75dp"
-            android:layout_marginTop="15dp"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="15dp"
-            android:layout_alignParentTop="true">
+        <RelativeLayout android:layout_width="fill_parent"
+                        android:layout_height="75dp"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginRight="15dp"
+                        android:layout_alignParentTop="true">
+
         <!-- History Button -->
             <ImageButton
                 android:id="@+id/button_history"

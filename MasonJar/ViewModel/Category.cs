@@ -5,7 +5,7 @@ using System.Drawing;
 
 namespace MasonJar.ViewModel
 {
-    public class Category
+    public class Category : Java.Lang.Object
     {
         public Model.ICategory CategoryModel { get; private set; }
         public Color  Color                  { get { return CategoryModel.Color; } set { CategoryModel.Color = value; } }
