@@ -19,5 +19,10 @@ namespace MasonJar.ViewModel
         {
             _HistoryModel = historyModel;
         }
+
+        public bool HasHistoryItem(Model.IHistoryItem historyItem)
+        {
+            return _HistoryModel == historyItem;
+        }
     }
 }

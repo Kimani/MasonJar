@@ -44,7 +44,7 @@ namespace MasonJar.ViewModel
             // Create categories from the model.
             foreach (Model.ICategory categoryModel in _Model.Categories)
             {
-                _ActiveCategories.Add(new Category(categoryModel));
+                CreateCategory(categoryModel);
             }
 
             // Create items from the model, and reference our view model categories.
@@ -62,29 +62,214 @@ namespace MasonJar.ViewModel
                         }
                     }
                 }
-                _ActiveItems.Add(new Item(categoryViewModel, itemModel));
+                CreateItem(itemModel, categoryViewModel);
             }
 
             // Create history items.
             foreach (Model.IHistoryItem historyModel in _Model.History)
             {
-                _HistoryItems.Add(new HistoryItem(historyModel));
+                CreateHistory(historyModel);
             }
+        }
+
+        public void DeleteItem(Item item)                               { _Model.RemoveItem(item.ItemModel); }
+        public void DeleteCategory(Category category)                   { _Model.RemoveCategory(category.CategoryModel); }
+        public void AddNewCategory()                                    { _Model.AddNewCategory(); }
+        public void AddNewItem()                                        { _Model.AddNewItem(); }
+        private void CategoryDataChanged(object sender, EventArgs args) { CategoryCollectionChanged?.Invoke(sender, args); }
+        private void ItemDataChanged(object sender, EventArgs args)     { ItemCollectionChanged?.Invoke(sender, args); }
+
+        private void CreateItem(Model.IItem itemModel, Category categoryViewModel)
+        {
+            Item itemViewModel = new Item(categoryViewModel, itemModel);
+            itemViewModel.ItemChanged += ItemDataChanged;
+            Items.Add(itemViewModel);
+        }
+
+        private void CreateCategory(Model.ICategory categoryModel)
+        {
+            Category categoryViewModel = new Category(categoryModel);
+            categoryViewModel.CategoryUpdated += CategoryDataChanged;
+            Categories.Add(categoryViewModel);
+        }
+
+        private void CreateHistory(Model.IHistoryItem historyModel)
+        {
+            History.Add(new HistoryItem(historyModel));
         }
 
         private void CategoryModelCollectionChanged(object sender, EventArgs args)
         {
-            CategoryCollectionChanged?.Invoke(sender, args);
+            bool updated = false;
+
+            // Go through all the categories. If a category from the model doesn't have a corresponding entry in the view model, make one.
+            // If a category from the view model doesn't have a corresponding entry in the model, remove it and remove it from all items.
+            foreach (Model.ICategory modelCategory in _Model.Categories)
+            {
+                bool found = false;
+                foreach (Category viewModelCategory in Categories)
+                {
+                    if (viewModelCategory.CategoryModel == modelCategory)
+                    {
+                        found = true;
+                        break;
+                    }
+                }
+
+                if (!found)
+                {
+                    CreateCategory(modelCategory);
+                    updated = true;
+                }
+            }
+
+            for (int i = Categories.Count - 1; i >= 0; --i)
+            {
+                Category viewModelCategory = Categories[i];
+
+                bool found = false;
+                foreach (Model.ICategory modelCategory in _Model.Categories)
+                {
+                    if (viewModelCategory.CategoryModel == modelCategory)
+                    {
+                        found = true;
+                        break;
+                    }
+                }
+
+                if (!found)
+                {
+                    Categories.Remove(viewModelCategory);
+                    updated = true;
+
+                    foreach (Item viewModelItem in Items)
+                    {
+                        if (viewModelItem.Category == viewModelCategory)
+                        {
+                            viewModelItem.SetCategory(null, false);
+                        }
+                    }
+                }
+            }
+
+            if (updated)
+            {
+                CategoryCollectionChanged?.Invoke(sender, args);
+            }
         }
 
         private void ItemModelCollectionChanged(object sender, EventArgs args)
         {
-            ItemCollectionChanged?.Invoke(sender, args);
+            // Go through all the items. If an item from the model doesn't have a corresponding viewmodel entry, create the
+            // viewmodel entry. If an item from the viewmodel doesn't have a corresponding model entry, delete the model entry.
+            bool updated = false;
+
+            foreach (Model.IItem modelItem in _Model.Items)
+            {
+                bool found = false;
+                foreach (Item viewModelItem in Items)
+                {
+                    if (viewModelItem.HasModel(modelItem))
+                    {
+                        found = true;
+                        break;
+                    }
+                }
+
+                if (!found)
+                {
+                    Category categoryViewModel = null;
+                    if (modelItem.Category != null)
+                    {
+                        foreach (Category c in _ActiveCategories)
+                        {
+                            if (c.CategoryModel == modelItem.Category)
+                            {
+                                categoryViewModel = c;
+                                break;
+                            }
+                        }
+                    }
+
+                    CreateItem(modelItem, categoryViewModel);
+                    updated = true;
+                }
+            }
+
+            for (int i = Items.Count - 1; i >= 0; --i)
+            {
+                Item viewModelItem = Items[i];
+
+                bool found = false;
+                foreach (Model.IItem modelItem in _Model.Items)
+                {
+                    if (viewModelItem.HasModel(modelItem))
+                    {
+                        found = true;
+                        break;
+                    }
+                }
+
+                if (!found)
+                {
+                    Items.Remove(viewModelItem);
+                    updated = true;
+                }
+            }
+
+            if (updated)
+            {
+                ItemCollectionChanged?.Invoke(sender, args);
+            }
         }
 
         private void HistoryModelCollectionChanged(object sender, EventArgs args)
         {
-            HistoryCollectionChanged?.Invoke(sender, args);
+            bool updated = false;
+            foreach (Model.IHistoryItem modelHistory in _Model.History)
+            {
+                bool found = false;
+                foreach (HistoryItem viewModelHistory in History)
+                {
+                    if (viewModelHistory.HasHistoryItem(modelHistory))
+                    {
+                        found = true;
+                        break;
+                    }
+                }
+
+                if (!found)
+                {
+                    CreateHistory(modelHistory);
+                    updated = true;
+                }
+            }
+
+            for (int i = History.Count - 1; i >= 0; --i)
+            {
+                HistoryItem viewModelHistory = History[i];
+
+                bool found = false;
+                foreach (Model.IHistoryItem modelHistory in _Model.History)
+                {
+                    if (viewModelHistory.HasHistoryItem(modelHistory))
+                    {
+                        found = true;
+                        break;
+                    }
+                }
+
+                if (!found)
+                {
+                    History.Remove(viewModelHistory);
+                    updated = true;
+                }
+            }
+
+            if (updated)
+            {
+                HistoryCollectionChanged?.Invoke(sender, args);
+            }
         }
     }
 }

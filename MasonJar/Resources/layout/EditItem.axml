@@ -1,15 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="horizontal"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
-  <TextView android:layout_width="wrap_content"
-              android:layout_height="wrap_content"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="20dp"
+              android:paddingBottom="2dp">
+  
+    <!-- Stick Image -->
+    <ImageView android:layout_width="match_parent"
+               android:layout_height="match_parent"
+               android:layout_alignParentTop="true"
+               android:src="@drawable/stick"
+               android:padding="0dp"
+               android:adjustViewBounds="true"
+               android:layout_margin="0dp"/>
+
+    <!-- Category Swatch -->
+    <ImageView android:id="@+id/edit_item_swatch"
+               android:layout_width="30dp"
+               android:layout_height="30dp"
+               android:layout_marginTop="13dp"
+               android:layout_marginLeft="17dp"
+               android:layout_alignParentTop="true"
+               android:src="@drawable/circle"
+               android:tint="#ff0000"/>
+
+    <!-- Category Title -->
+    <TextView android:id="@+id/edit_item_content"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
               android:layout_alignParentTop="true"
-              android:layout_alignParentLeft="true"
               android:layout_marginTop="5dp"
-              android:layout_marginBottom="5dp"
+              android:layout_marginLeft="55dp"
               android:textColor="#000000"
-              android:textSize="15dp"
-              android:text="item" />
-</LinearLayout>
+              android:textSize="30dp"
+              android:text="Test!" />
+  
+    <!-- Delete Button -->
+    <Button android:id="@+id/edit_item_delete"
+            android:layout_width="45dp"
+            android:layout_height="38dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="17dp"
+            android:layout_marginTop="6dp"
+            android:text="✖"
+            android:textSize="25dp"
+            android:paddingTop="2dp" />
+
+</RelativeLayout>

@@ -18,6 +18,7 @@ namespace MasonJar.Model
         void AddNewCategory();
         void AddNewItem();
         void RemoveItem(IItem i);
+        void RemoveCategory(ICategory c);
         void MoveItemToHistory(IItem i);
     }
 }

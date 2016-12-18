@@ -7,9 +7,10 @@ namespace MasonJar.ViewModel
 {
     public class Item : Java.Lang.Object
     {
-        public Category Category { get { return _ItemCategory; }      set { SetCategory(value, false); } }
-        public string   Content  { get { return _ItemModel.Content; } set { _ItemModel.Content = value; } }
-        public Color?   Color    { get { return (Category != null) ? Category.Color : (Color?)null; } }
+        public Category    Category  { get { return _ItemCategory; }      set { SetCategory(value, false); } }
+        public string      Content   { get { return _ItemModel.Content; } set { _ItemModel.Content = value; } }
+        public Color?      Color     { get { return (Category != null) ? Category.Color : (Color?)null; } }
+        public Model.IItem ItemModel { get { return _ItemModel; } }
 
         public event EventHandler ItemChanged;
 
@@ -19,9 +20,15 @@ namespace MasonJar.ViewModel
         public Item(Category category, Model.IItem itemModel)
         {
             _ItemModel = itemModel;
-            _ItemModel.CategoryChanged += ItemOrCategoryChanged;
+            itemModel.CategoryChanged += ItemOrCategoryChanged;
+            itemModel.ContentChanged += ItemOrCategoryChanged;
 
             SetCategory(category, true);
+        }
+
+        public bool HasModel(Model.IItem item)
+        {
+            return _ItemModel == item;
         }
 
         public void SetCategory(Category category, bool initial)

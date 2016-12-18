@@ -76,6 +76,14 @@ namespace MasonJar.Model.Real
             }
         }
 
+        public void RemoveCategory(ICategory c)
+        {
+            if (_Categories.Remove(c))
+            {
+                CategoryCollectionChanged?.Invoke(this, EventArgs.Empty);
+            }
+        }
+
         public void MoveItemToHistory(IItem i)
         {
             if (_Items.Contains(i))

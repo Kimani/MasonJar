@@ -29,7 +29,7 @@ namespace MasonJar.Model.Mock
         public Category()
         {
             Random r = new Random(GetHashCode());
-            _Title = "Random Item #" + (1 + (r.Next() % 999));
+            _Title = "Random Category #" + (1 + (r.Next() % 999));
             _Color = ((CategorySwatch)System.Enum.GetValues(typeof(CategorySwatch)).GetValue(r.Next() % 16)).GetColor();
         }
     }

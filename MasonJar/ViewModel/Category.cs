@@ -21,7 +21,8 @@ namespace MasonJar.ViewModel
         public Category(Model.ICategory categoryModel)
         {
             CategoryModel = categoryModel;
-            CategoryUpdated += CategoryModelUpdated;
+            categoryModel.TitleUpdated += CategoryModelUpdated;
+            categoryModel.ColorUpdated += CategoryModelUpdated;
         }
 
         private void CategoryModelUpdated(object sender, EventArgs args)

@@ -20,7 +20,7 @@ namespace MasonJar.Model.Mock
         private List<IHistoryItem> _History    = new List<IHistoryItem>();
 
         private static int MOCK_CATEGORY_COUNT = 5;
-        private static int MOCK_ITEM_COUNT     = 30;
+        private static int MOCK_ITEM_COUNT     = 4;
         private static int MOCK_HISTORY_COUNT  = 300;
 
         public Jar()
@@ -33,9 +33,39 @@ namespace MasonJar.Model.Mock
             History.Sort((x, y) => y.Timestamp.CompareTo(x.Timestamp));
         }
 
-        public void AddNewCategory()           { Categories.Add(new Category()); CategoryCollectionChanged?.Invoke(this, EventArgs.Empty); }
-        public void AddNewItem()               { Items.Add(new Item(Categories)); ItemCollectionChanged?.Invoke(this, EventArgs.Empty); }
-        public void RemoveItem(IItem i)        { if (Items.Remove(i)) { ItemCollectionChanged?.Invoke(this, EventArgs.Empty); } }
-        public void MoveItemToHistory(IItem i) { if (Items.Remove(i)) { History.Add(new HistoryItem()); HistoryCollectionChanged?.Invoke(this, EventArgs.Empty); } }
+        public void AddNewCategory()
+        {
+            Categories.Add(new Category()); CategoryCollectionChanged?.Invoke(this, EventArgs.Empty);
+        }
+
+        public void AddNewItem()
+        {
+            Items.Add(new Item(Categories));
+            ItemCollectionChanged?.Invoke(this, EventArgs.Empty);
+        }
+
+        public void RemoveItem(IItem i)
+        {
+            if (Items.Remove(i))
+            {
+                ItemCollectionChanged?.Invoke(this, EventArgs.Empty);
+            }
+        }
+
+        public void RemoveCategory(ICategory c)
+        {
+            if (Categories.Remove(c))
+            {
+                CategoryCollectionChanged?.Invoke(this, EventArgs.Empty);
+            }
+        }
+
+        public void MoveItemToHistory(IItem i)
+        {
+            if (Items.Remove(i))
+            {
+                History.Add(new HistoryItem()); HistoryCollectionChanged?.Invoke(this, EventArgs.Empty);
+            }
+        }
     }
 }

@@ -16,5 +16,212 @@
                   android:layout_weight="1"
                   android:layout_marginTop="15dp"
                   android:drawSelectorOnTop="false"/>
+
+        <!-- Category Delete Overlay -->
+        <RelativeLayout android:id="@+id/edit_overlay_category_delete"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_centerInParent="true"
+                        android:clipChildren="false"
+                        android:clickable="true"
+                        android:visibility="gone"
+                        android:background="#E0FFFFFF">
+            <LinearLayout android:layout_width="match_parent"
+                          android:layout_height="wrap_content"
+                          android:layout_centerInParent="true"
+                          android:orientation="vertical">
+
+                <!-- Confirmation Text -->
+                <TextView android:layout_width="match_parent"
+                          android:layout_height="wrap_content"
+                          android:gravity="center"
+                          android:textColor="#000000"
+                          android:textSize="40dp"
+                          android:layout_marginBottom="5dp"
+                          android:text="Really delete category?" />
+
+                <!-- Yes / No Buttons-->
+                <LinearLayout android:orientation="horizontal"
+                              android:layout_width="match_parent"
+                              android:layout_height="wrap_content"
+                              android:gravity="center_horizontal">
+                  <Button android:id="@+id/edit_overlay_category_delete_yes"
+                          android:text="Yes"
+                          android:textSize="30dp"
+                          android:layout_height="wrap_content"
+                          android:layout_width="200dp" />
+                  <Button android:id="@+id/edit_overlay_category_delete_no"
+                          android:text="No"
+                          android:textSize="30dp"
+                          android:layout_height="wrap_content"
+                          android:layout_width="200dp"/>
+                </LinearLayout>
+            </LinearLayout>
+        </RelativeLayout>
+
+        <!-- Item Delete Overlay -->
+        <RelativeLayout android:id="@+id/edit_overlay_item_delete"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_centerInParent="true"
+                        android:clipChildren="false"
+                        android:clickable="true"
+                        android:visibility="gone"
+                        android:background="#E0FFFFFF">
+            <LinearLayout android:layout_width="match_parent"
+                          android:layout_height="wrap_content"
+                          android:layout_centerInParent="true"
+                          android:orientation="vertical">
+
+                <!-- Confirmation Text -->
+                <TextView android:layout_width="match_parent"
+                          android:layout_height="wrap_content"
+                          android:gravity="center"
+                          android:textColor="#000000"
+                          android:textSize="40dp"
+                          android:layout_marginBottom="5dp"
+                          android:text="Really delete stick?" />
+
+                <!-- Yes / No Buttons-->
+                <LinearLayout android:orientation="horizontal"
+                              android:layout_width="match_parent"
+                              android:layout_height="wrap_content"
+                              android:gravity="center_horizontal">
+                  <Button android:id="@+id/edit_overlay_item_delete_yes"
+                          android:text="Yes"
+                          android:textSize="30dp"
+                          android:layout_height="wrap_content"
+                          android:layout_width="200dp" />
+                  <Button android:id="@+id/edit_overlay_item_delete_no"
+                          android:text="No"
+                          android:textSize="30dp"
+                          android:layout_height="wrap_content"
+                          android:layout_width="200dp"/>
+                </LinearLayout>
+            </LinearLayout>
+        </RelativeLayout>
+      
+        <!-- Category Rename Overlay -->
+        <RelativeLayout android:id="@+id/edit_overlay_category_rename"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_centerInParent="true"
+                        android:clipChildren="false"
+                        android:clickable="true"
+                        android:visibility="gone"
+                        android:background="#E0FFFFFF">
+
+          <!-- Center Content -->
+            <LinearLayout android:layout_width="match_parent"
+                          android:layout_height="wrap_content"
+                          android:layout_centerInParent="true"
+                          android:orientation="vertical">
+                <TextView android:layout_width="match_parent"
+                          android:layout_height="wrap_content"
+                          android:gravity="center"
+                          android:textColor="#000000"
+                          android:textSize="40dp"
+                          android:layout_marginBottom="10dp"
+                          android:text="Edit Category Title" />
+              
+                <EditText android:id="@+id/edit_overlay_category_rename_edit"
+                          android:layout_width="match_parent"
+                          android:layout_height="wrap_content"
+                          android:layout_marginLeft="30dp"
+                          android:layout_marginRight="30dp"
+                          android:paddingBottom="10dp"
+                          android:textSize="26dp"
+                          android:background="@drawable/border_black"
+                          android:textColor="#000000"
+                          android:padding="5dp"
+                          android:maxLength="40"
+                          android:lines="1"
+                          android:layout_marginBottom="10dp"/>
+
+                <!-- Ok / Cancel Buttons-->
+                <LinearLayout android:orientation="horizontal"
+                              android:layout_width="match_parent"
+                              android:layout_height="wrap_content"
+                              android:gravity="center_horizontal">
+                  <Button android:id="@+id/edit_overlay_category_rename_yes"
+                          android:text="Ok"
+                          android:textSize="30dp"
+                          android:layout_height="wrap_content"
+                          android:layout_width="200dp" />
+                  <Button android:id="@+id/edit_overlay_category_rename_no"
+                          android:text="Cancel"
+                          android:textSize="30dp"
+                          android:layout_height="wrap_content"
+                          android:layout_width="200dp"/>
+                </LinearLayout>
+            </LinearLayout>
+        </RelativeLayout>
+
+        <!-- Item Rename Overlay -->
+        <RelativeLayout android:id="@+id/edit_overlay_item_rename"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_centerInParent="true"
+                        android:clipChildren="false"
+                        android:clickable="true"
+                        android:visibility="gone"
+                        android:background="#E0FFFFFF">
+
+          <!-- Center Content -->
+            <LinearLayout android:layout_width="match_parent"
+                          android:layout_height="wrap_content"
+                          android:layout_centerInParent="true"
+                          android:orientation="vertical">
+                <TextView android:layout_width="match_parent"
+                          android:layout_height="wrap_content"
+                          android:gravity="center"
+                          android:textColor="#000000"
+                          android:textSize="40dp"
+                          android:layout_marginBottom="10dp"
+                          android:text="Edit Item Title" />
+              
+                <EditText android:id="@+id/edit_overlay_item_rename_edit"
+                          android:layout_width="match_parent"
+                          android:layout_height="wrap_content"
+                          android:layout_marginLeft="30dp"
+                          android:layout_marginRight="30dp"
+                          android:paddingBottom="10dp"
+                          android:textSize="26dp"
+                          android:background="@drawable/border_black"
+                          android:textColor="#000000"
+                          android:padding="5dp"
+                          android:maxLength="40"
+                          android:lines="1"
+                          android:layout_marginBottom="10dp"/>
+
+                <!-- Ok / Cancel Buttons-->
+                <LinearLayout android:orientation="horizontal"
+                              android:layout_width="match_parent"
+                              android:layout_height="wrap_content"
+                              android:gravity="center_horizontal">
+                  <Button android:id="@+id/edit_overlay_item_rename_yes"
+                          android:text="Ok"
+                          android:textSize="30dp"
+                          android:layout_height="wrap_content"
+                          android:layout_width="200dp" />
+                  <Button android:id="@+id/edit_overlay_item_rename_no"
+                          android:text="Cancel"
+                          android:textSize="30dp"
+                          android:layout_height="wrap_content"
+                          android:layout_width="200dp"/>
+                </LinearLayout>
+            </LinearLayout>
+        </RelativeLayout>
+
+        <!-- Swatch Selection Overlay -->
+        <RelativeLayout android:id="@+id/edit_overlay_category_swatch"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:visibility="gone"
+                        android:clickable="true"
+                        android:background="#E0FFFFFF">
+          
+        </RelativeLayout>
+      
     </RelativeLayout>
 </LinearLayout>
