@@ -67,6 +67,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Common\CallbackSet.cs" />
     <Compile Include="Common\EnumAttributes.cs" />
     <Compile Include="Common\IAttribute.cs" />
     <Compile Include="Common\SwatchColorB.cs" />
@@ -75,6 +76,7 @@
     <Compile Include="Common\ViewHelper.cs" />
     <Compile Include="EditActivity.cs" />
     <Compile Include="EditAdapter.cs" />
+    <Compile Include="EditCategoryAdapter.cs" />
     <Compile Include="HistoryActivity.cs" />
     <Compile Include="HistoryAdapter.cs" />
     <Compile Include="MainActivity.cs" />
@@ -130,6 +132,9 @@
       <SubType>Designer</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\EditItem.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\EditSelectableCategory.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>

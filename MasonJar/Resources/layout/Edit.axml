@@ -9,7 +9,8 @@
                     android:clipChildren="false"
                     android:layout_width="fill_parent"
                     android:layout_height="fill_parent">
-        <!-- History item list -->
+
+        <!-- Category and Item list -->
         <ListView android:id="@android:id/list"
                   android:layout_width="match_parent"
                   android:layout_height="match_parent"
@@ -220,8 +221,255 @@
                         android:visibility="gone"
                         android:clickable="true"
                         android:background="#E0FFFFFF">
-          
+            <LinearLayout android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:layout_centerInParent="true"
+                          android:gravity="center_horizontal"
+                          android:orientation="vertical">
+
+                <!-- Title -->
+                <TextView android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:gravity="center"
+                          android:textColor="#000000"
+                          android:textSize="40dp"
+                          android:layout_marginBottom="10dp"
+                          android:text="Select Category Color" />
+
+                <!-- Row 1 -->
+                <LinearLayout android:layout_width="wrap_content"
+                              android:layout_height="wrap_content"
+                              android:gravity="center_horizontal"
+                              android:orientation="horizontal"
+                              android:layout_marginBottom="10dp">
+                    <ImageButton android:id="@+id/edit_overlay_category_swatch_1"
+                                 android:layout_width="70dp"
+                                 android:layout_height="70dp"
+                                 android:layout_marginRight="10dp"
+                                 android:padding="0px"
+                                 android:adjustViewBounds="true"
+                                 android:scaleType="fitCenter"
+                                 style="?android:attr/borderlessButtonStyle"
+                                 android:background="@android:color/transparent"
+                                 android:src="@drawable/swatch" />
+                    <ImageButton android:id="@+id/edit_overlay_category_swatch_2"
+                                 android:layout_width="70dp"
+                                 android:layout_height="70dp"
+                                 android:layout_marginRight="10dp"
+                                 android:padding="0px"
+                                 android:adjustViewBounds="true"
+                                 android:scaleType="fitCenter"
+                                 style="?android:attr/borderlessButtonStyle"
+                                 android:background="@android:color/transparent"
+                                 android:src="@drawable/swatch" />
+                    <ImageButton android:id="@+id/edit_overlay_category_swatch_3"
+                                 android:layout_width="70dp"
+                                 android:layout_height="70dp"
+                                 android:layout_marginRight="10dp"
+                                 android:padding="0px"
+                                 android:adjustViewBounds="true"
+                                 android:scaleType="fitCenter"
+                                 style="?android:attr/borderlessButtonStyle"
+                                 android:background="@android:color/transparent"
+                                 android:src="@drawable/swatch" />
+                    <ImageButton android:id="@+id/edit_overlay_category_swatch_4"
+                                 android:layout_width="70dp"
+                                 android:layout_height="70dp"
+                                 android:padding="0px"
+                                 android:adjustViewBounds="true"
+                                 android:scaleType="fitCenter"
+                                 style="?android:attr/borderlessButtonStyle"
+                                 android:background="@android:color/transparent"
+                                 android:src="@drawable/swatch" />
+                </LinearLayout>
+              
+                <!-- Row 2 -->
+                <LinearLayout android:layout_width="wrap_content"
+                              android:layout_height="wrap_content"
+                              android:gravity="center_horizontal"
+                              android:orientation="horizontal"
+                              android:layout_marginBottom="10dp">
+                    <ImageButton android:id="@+id/edit_overlay_category_swatch_5"
+                                 android:layout_width="70dp"
+                                 android:layout_height="70dp"
+                                 android:layout_marginRight="10dp"
+                                 android:padding="0px"
+                                 android:adjustViewBounds="true"
+                                 android:scaleType="fitCenter"
+                                 style="?android:attr/borderlessButtonStyle"
+                                 android:background="@android:color/transparent"
+                                 android:src="@drawable/swatch" />
+                    <ImageButton android:id="@+id/edit_overlay_category_swatch_6"
+                                 android:layout_width="70dp"
+                                 android:layout_height="70dp"
+                                 android:layout_marginRight="10dp"
+                                 android:padding="0px"
+                                 android:adjustViewBounds="true"
+                                 android:scaleType="fitCenter"
+                                 style="?android:attr/borderlessButtonStyle"
+                                 android:background="@android:color/transparent"
+                                 android:src="@drawable/swatch" />
+                    <ImageButton android:id="@+id/edit_overlay_category_swatch_7"
+                                 android:layout_width="70dp"
+                                 android:layout_height="70dp"
+                                 android:layout_marginRight="10dp"
+                                 android:padding="0px"
+                                 android:adjustViewBounds="true"
+                                 android:scaleType="fitCenter"
+                                 style="?android:attr/borderlessButtonStyle"
+                                 android:background="@android:color/transparent"
+                                 android:src="@drawable/swatch" />
+                    <ImageButton android:id="@+id/edit_overlay_category_swatch_8"
+                                 android:layout_width="70dp"
+                                 android:layout_height="70dp"
+                                 android:padding="0px"
+                                 android:adjustViewBounds="true"
+                                 android:scaleType="fitCenter"
+                                 style="?android:attr/borderlessButtonStyle"
+                                 android:background="@android:color/transparent"
+                                 android:src="@drawable/swatch" />
+                </LinearLayout>
+              
+                <!-- Row 3 -->
+                <LinearLayout android:layout_width="wrap_content"
+                              android:layout_height="wrap_content"
+                              android:gravity="center_horizontal"
+                              android:orientation="horizontal"
+                              android:layout_marginBottom="10dp">
+                    <ImageButton android:id="@+id/edit_overlay_category_swatch_9"
+                                 android:layout_width="70dp"
+                                 android:layout_height="70dp"
+                                 android:layout_marginRight="10dp"
+                                 android:padding="0px"
+                                 android:adjustViewBounds="true"
+                                 android:scaleType="fitCenter"
+                                 style="?android:attr/borderlessButtonStyle"
+                                 android:background="@android:color/transparent"
+                                 android:src="@drawable/swatch" />
+                    <ImageButton android:id="@+id/edit_overlay_category_swatch_10"
+                                 android:layout_width="70dp"
+                                 android:layout_height="70dp"
+                                 android:layout_marginRight="10dp"
+                                 android:padding="0px"
+                                 android:adjustViewBounds="true"
+                                 android:scaleType="fitCenter"
+                                 style="?android:attr/borderlessButtonStyle"
+                                 android:background="@android:color/transparent"
+                                 android:src="@drawable/swatch" />
+                    <ImageButton android:id="@+id/edit_overlay_category_swatch_11"
+                                 android:layout_width="70dp"
+                                 android:layout_height="70dp"
+                                 android:layout_marginRight="10dp"
+                                 android:padding="0px"
+                                 android:adjustViewBounds="true"
+                                 android:scaleType="fitCenter"
+                                 style="?android:attr/borderlessButtonStyle"
+                                 android:background="@android:color/transparent"
+                                 android:src="@drawable/swatch" />
+                    <ImageButton android:id="@+id/edit_overlay_category_swatch_12"
+                                 android:layout_width="70dp"
+                                 android:layout_height="70dp"
+                                 android:padding="0px"
+                                 android:adjustViewBounds="true"
+                                 android:scaleType="fitCenter"
+                                 style="?android:attr/borderlessButtonStyle"
+                                 android:background="@android:color/transparent"
+                                 android:src="@drawable/swatch" />
+                </LinearLayout>
+              
+                <!-- Row 4 -->
+                <LinearLayout android:layout_width="wrap_content"
+                              android:layout_height="wrap_content"
+                              android:gravity="center_horizontal"
+                              android:orientation="horizontal"
+                              android:layout_marginBottom="10dp">
+                    <ImageButton android:id="@+id/edit_overlay_category_swatch_13"
+                                 android:layout_width="70dp"
+                                 android:layout_height="70dp"
+                                 android:layout_marginRight="10dp"
+                                 android:padding="0px"
+                                 android:adjustViewBounds="true"
+                                 android:scaleType="fitCenter"
+                                 style="?android:attr/borderlessButtonStyle"
+                                 android:background="@android:color/transparent"
+                                 android:src="@drawable/swatch" />
+                    <ImageButton android:id="@+id/edit_overlay_category_swatch_14"
+                                 android:layout_width="70dp"
+                                 android:layout_height="70dp"
+                                 android:layout_marginRight="10dp"
+                                 android:padding="0px"
+                                 android:adjustViewBounds="true"
+                                 android:scaleType="fitCenter"
+                                 style="?android:attr/borderlessButtonStyle"
+                                 android:background="@android:color/transparent"
+                                 android:src="@drawable/swatch" />
+                    <ImageButton android:id="@+id/edit_overlay_category_swatch_15"
+                                 android:layout_width="70dp"
+                                 android:layout_height="70dp"
+                                 android:layout_marginRight="10dp"
+                                 android:padding="0px"
+                                 android:adjustViewBounds="true"
+                                 android:scaleType="fitCenter"
+                                 style="?android:attr/borderlessButtonStyle"
+                                 android:background="@android:color/transparent"
+                                 android:src="@drawable/swatch" />
+                    <ImageButton android:id="@+id/edit_overlay_category_swatch_16"
+                                 android:layout_width="70dp"
+                                 android:layout_height="70dp"
+                                 android:padding="0px"
+                                 android:adjustViewBounds="true"
+                                 android:scaleType="fitCenter"
+                                 style="?android:attr/borderlessButtonStyle"
+                                 android:background="@android:color/transparent"
+                                 android:src="@drawable/swatch" />
+                </LinearLayout>
+
+                <Button android:id="@+id/edit_overlay_category_swatch_cancel"
+                        android:text="Cancel"
+                        android:textSize="30dp"
+                        android:gravity="center_horizontal"
+                        android:layout_height="wrap_content"
+                        android:layout_width="200dp" />
+            </LinearLayout>
         </RelativeLayout>
-      
+
+        <!-- Item Category Selection Overlay -->
+        <RelativeLayout android:id="@+id/edit_overlay_item_category"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_centerInParent="true"
+                        android:clipChildren="false"
+                        android:clickable="true"
+                        android:visibility="gone"
+                        android:background="#E0FFFFFF">
+            <LinearLayout android:layout_width="match_parent"
+                          android:layout_height="match_parent"
+                          android:layout_marginTop="100dp"
+                          android:gravity="center_horizontal"
+                          android:layout_marginBottom="100dp"
+                          android:orientation="vertical">
+
+                <TextView android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:gravity="center_horizontal"
+                          android:textColor="#000000"
+                          android:textSize="40dp"
+                          android:layout_marginBottom="10dp"
+                          android:text="Select Stick Category" />
+
+                <ListView android:id="@+id/edit_overlay_item_category_list"
+                          android:gravity="center_horizontal"
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:layout_weight="1"/>
+              
+                <Button android:id="@+id/edit_overlay_item_category_cancel"
+                        android:text="Cancel"
+                        android:textSize="30dp"
+                        android:gravity="center_horizontal"
+                        android:layout_height="wrap_content"
+                        android:layout_width="200dp" />
+            </LinearLayout>
+        </RelativeLayout>
     </RelativeLayout>
 </LinearLayout>

@@ -78,6 +78,7 @@ namespace MasonJar.ViewModel
         public void AddNewItem()                                        { _Model.AddNewItem(); }
         private void CategoryDataChanged(object sender, EventArgs args) { CategoryCollectionChanged?.Invoke(sender, args); }
         private void ItemDataChanged(object sender, EventArgs args)     { ItemCollectionChanged?.Invoke(sender, args); }
+        private void CreateHistory(Model.IHistoryItem historyModel)     { History.Add(new HistoryItem(historyModel)); }
 
         private void CreateItem(Model.IItem itemModel, Category categoryViewModel)
         {
@@ -91,11 +92,6 @@ namespace MasonJar.ViewModel
             Category categoryViewModel = new Category(categoryModel);
             categoryViewModel.CategoryUpdated += CategoryDataChanged;
             Categories.Add(categoryViewModel);
-        }
-
-        private void CreateHistory(Model.IHistoryItem historyModel)
-        {
-            History.Add(new HistoryItem(historyModel));
         }
 
         private void CategoryModelCollectionChanged(object sender, EventArgs args)

@@ -1,5 +1,6 @@
 // [Ready Design Corps] - [Mason Jar] - Copyright 2016
 
+using System;
 using System.Drawing;
 
 namespace MasonJar.Common
@@ -32,6 +33,11 @@ namespace MasonJar.Common
                                   EnumAttributes.GetAttributeValue<SwatchColorR, byte>(cs),
                                   EnumAttributes.GetAttributeValue<SwatchColorG, byte>(cs),
                                   EnumAttributes.GetAttributeValue<SwatchColorB, byte>(cs));
+        }
+
+        public static CategorySwatch GetSwatchFromIndex(int index)
+        {
+            return (CategorySwatch)Enum.GetValues(typeof(CategorySwatch)).GetValue(index);
         }
     }
 }

@@ -3,6 +3,7 @@
 using System;
 using Android.Views;
 using Android.Widget;
+using MasonJar.Common;
 
 namespace MasonJar
 {
@@ -10,16 +11,6 @@ namespace MasonJar
     {
         public delegate void CallbackDelegateCategory(ViewModel.Category item);
         public delegate void CallbackDelegateItem(ViewModel.Item item);
-
-        public class CallbackSet
-        {
-            public CallbackDelegateCategory CallbackCategorySwatchClicked;
-            public CallbackDelegateCategory CallbackCategoryDeleteClicked;
-            public CallbackDelegateCategory CallbackCategoryTitleClicked;
-            public CallbackDelegateItem     CallbackItemCategoryClicked;
-            public CallbackDelegateItem     CallbackItemContentClicked;
-            public CallbackDelegateItem     CallbackItemDeleteClicked;
-        }
 
         public override int Count
         {
@@ -51,23 +42,17 @@ namespace MasonJar
             _JarViewModel.ItemCollectionChanged += EditUpdated;
         }
 
-        private void EditUpdated(object sender, EventArgs args)
-        {
-            NotifyDataSetChanged();
-        }
+        public override long GetItemId(int position)            { return GetItem(position).GetHashCode(); }
+        private void EditUpdated(object sender, EventArgs args) { NotifyDataSetChanged(); }
 
         public override Java.Lang.Object GetItem(int position)
         {
-            return (position == 0)                                                     ? (Java.Lang.Object)_CategoriesHeaderDataItem :
-                   ((position > 0) && position < (1 + _JarViewModel.Categories.Count)) ? (Java.Lang.Object)_JarViewModel.Categories[position - 1] :
-                   (position == (1 + _JarViewModel.Categories.Count))                  ? (Java.Lang.Object)_ItemsHeaderDataItem : 
+            return (position == 0)                                                     ? _CategoriesHeaderDataItem :
+                   ((position > 0) && position < (1 + _JarViewModel.Categories.Count)) ? _JarViewModel.Categories[position - 1] :
+                   (position == (1 + _JarViewModel.Categories.Count))                  ? _ItemsHeaderDataItem : 
                                                                                          (Java.Lang.Object)_JarViewModel.Items[(position - (2 + _JarViewModel.Categories.Count))];
         }
 
-        public override long GetItemId(int position)
-        {
-            return GetItem(position).GetHashCode();
-        }
 
         public override View GetView(int position, View convertView, ViewGroup parent)
         {

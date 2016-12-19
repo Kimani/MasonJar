@@ -183,38 +183,38 @@ namespace MasonJar
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7f06001e
-			public const int button_edit = 2131099678;
+			// aapt resource value: 0x7f060035
+			public const int button_edit = 2131099701;
 			
-			// aapt resource value: 0x7f06001f
-			public const int button_help = 2131099679;
+			// aapt resource value: 0x7f060036
+			public const int button_help = 2131099702;
 			
-			// aapt resource value: 0x7f06001d
-			public const int button_history = 2131099677;
+			// aapt resource value: 0x7f060034
+			public const int button_history = 2131099700;
 			
-			// aapt resource value: 0x7f060013
-			public const int edit_button_add_category = 2131099667;
+			// aapt resource value: 0x7f060027
+			public const int edit_button_add_category = 2131099687;
 			
-			// aapt resource value: 0x7f060014
-			public const int edit_button_add_item = 2131099668;
+			// aapt resource value: 0x7f060028
+			public const int edit_button_add_item = 2131099688;
 			
-			// aapt resource value: 0x7f060012
-			public const int edit_category_delete = 2131099666;
+			// aapt resource value: 0x7f060026
+			public const int edit_category_delete = 2131099686;
 			
-			// aapt resource value: 0x7f060010
-			public const int edit_category_swatch = 2131099664;
+			// aapt resource value: 0x7f060024
+			public const int edit_category_swatch = 2131099684;
 			
-			// aapt resource value: 0x7f060011
-			public const int edit_category_title = 2131099665;
+			// aapt resource value: 0x7f060025
+			public const int edit_category_title = 2131099685;
 			
-			// aapt resource value: 0x7f060016
-			public const int edit_item_content = 2131099670;
+			// aapt resource value: 0x7f06002a
+			public const int edit_item_content = 2131099690;
 			
-			// aapt resource value: 0x7f060017
-			public const int edit_item_delete = 2131099671;
+			// aapt resource value: 0x7f06002b
+			public const int edit_item_delete = 2131099691;
 			
-			// aapt resource value: 0x7f060015
-			public const int edit_item_swatch = 2131099669;
+			// aapt resource value: 0x7f060029
+			public const int edit_item_swatch = 2131099689;
 			
 			// aapt resource value: 0x7f060001
 			public const int edit_overlay_category_delete = 2131099649;
@@ -240,6 +240,66 @@ namespace MasonJar
 			// aapt resource value: 0x7f06000f
 			public const int edit_overlay_category_swatch = 2131099663;
 			
+			// aapt resource value: 0x7f060010
+			public const int edit_overlay_category_swatch_1 = 2131099664;
+			
+			// aapt resource value: 0x7f060019
+			public const int edit_overlay_category_swatch_10 = 2131099673;
+			
+			// aapt resource value: 0x7f06001a
+			public const int edit_overlay_category_swatch_11 = 2131099674;
+			
+			// aapt resource value: 0x7f06001b
+			public const int edit_overlay_category_swatch_12 = 2131099675;
+			
+			// aapt resource value: 0x7f06001c
+			public const int edit_overlay_category_swatch_13 = 2131099676;
+			
+			// aapt resource value: 0x7f06001d
+			public const int edit_overlay_category_swatch_14 = 2131099677;
+			
+			// aapt resource value: 0x7f06001e
+			public const int edit_overlay_category_swatch_15 = 2131099678;
+			
+			// aapt resource value: 0x7f06001f
+			public const int edit_overlay_category_swatch_16 = 2131099679;
+			
+			// aapt resource value: 0x7f060011
+			public const int edit_overlay_category_swatch_2 = 2131099665;
+			
+			// aapt resource value: 0x7f060012
+			public const int edit_overlay_category_swatch_3 = 2131099666;
+			
+			// aapt resource value: 0x7f060013
+			public const int edit_overlay_category_swatch_4 = 2131099667;
+			
+			// aapt resource value: 0x7f060014
+			public const int edit_overlay_category_swatch_5 = 2131099668;
+			
+			// aapt resource value: 0x7f060015
+			public const int edit_overlay_category_swatch_6 = 2131099669;
+			
+			// aapt resource value: 0x7f060016
+			public const int edit_overlay_category_swatch_7 = 2131099670;
+			
+			// aapt resource value: 0x7f060017
+			public const int edit_overlay_category_swatch_8 = 2131099671;
+			
+			// aapt resource value: 0x7f060018
+			public const int edit_overlay_category_swatch_9 = 2131099672;
+			
+			// aapt resource value: 0x7f060020
+			public const int edit_overlay_category_swatch_cancel = 2131099680;
+			
+			// aapt resource value: 0x7f060021
+			public const int edit_overlay_item_category = 2131099681;
+			
+			// aapt resource value: 0x7f060023
+			public const int edit_overlay_item_category_cancel = 2131099683;
+			
+			// aapt resource value: 0x7f060022
+			public const int edit_overlay_item_category_list = 2131099682;
+			
 			// aapt resource value: 0x7f060004
 			public const int edit_overlay_item_delete = 2131099652;
 			
@@ -261,41 +321,50 @@ namespace MasonJar
 			// aapt resource value: 0x7f06000d
 			public const int edit_overlay_item_rename_yes = 2131099661;
 			
-			// aapt resource value: 0x7f060021
-			public const int help_content_parent = 2131099681;
+			// aapt resource value: 0x7f06002c
+			public const int edit_selectable_category = 2131099692;
 			
-			// aapt resource value: 0x7f06001b
-			public const int history_category_swatch = 2131099675;
+			// aapt resource value: 0x7f06002d
+			public const int edit_selectable_category_swatch = 2131099693;
 			
-			// aapt resource value: 0x7f060018
-			public const int history_category_timestamp = 2131099672;
+			// aapt resource value: 0x7f06002e
+			public const int edit_selectable_category_title = 2131099694;
 			
-			// aapt resource value: 0x7f06001a
-			public const int history_category_title = 2131099674;
+			// aapt resource value: 0x7f060038
+			public const int help_content_parent = 2131099704;
 			
-			// aapt resource value: 0x7f060019
-			public const int history_content = 2131099673;
+			// aapt resource value: 0x7f060032
+			public const int history_category_swatch = 2131099698;
 			
-			// aapt resource value: 0x7f060020
-			public const int imageView1 = 2131099680;
+			// aapt resource value: 0x7f06002f
+			public const int history_category_timestamp = 2131099695;
+			
+			// aapt resource value: 0x7f060031
+			public const int history_category_title = 2131099697;
+			
+			// aapt resource value: 0x7f060030
+			public const int history_content = 2131099696;
+			
+			// aapt resource value: 0x7f060037
+			public const int imageView1 = 2131099703;
 			
 			// aapt resource value: 0x7f060000
 			public const int maineditlayout = 2131099648;
 			
-			// aapt resource value: 0x7f06001c
-			public const int mainlayout = 2131099676;
+			// aapt resource value: 0x7f060033
+			public const int mainlayout = 2131099699;
 			
-			// aapt resource value: 0x7f060022
-			public const int tutorial_step1 = 2131099682;
+			// aapt resource value: 0x7f060039
+			public const int tutorial_step1 = 2131099705;
 			
-			// aapt resource value: 0x7f060023
-			public const int tutorial_step2 = 2131099683;
+			// aapt resource value: 0x7f06003a
+			public const int tutorial_step2 = 2131099706;
 			
-			// aapt resource value: 0x7f060024
-			public const int tutorial_step3 = 2131099684;
+			// aapt resource value: 0x7f06003b
+			public const int tutorial_step3 = 2131099707;
 			
-			// aapt resource value: 0x7f060025
-			public const int tutorial_step4 = 2131099685;
+			// aapt resource value: 0x7f06003c
+			public const int tutorial_step4 = 2131099708;
 			
 			static Id()
 			{
@@ -326,16 +395,19 @@ namespace MasonJar
 			public const int EditItem = 2130903044;
 			
 			// aapt resource value: 0x7f030005
-			public const int History = 2130903045;
+			public const int EditSelectableCategory = 2130903045;
 			
 			// aapt resource value: 0x7f030006
-			public const int HistoryItem = 2130903046;
+			public const int History = 2130903046;
 			
 			// aapt resource value: 0x7f030007
-			public const int HistoryItemWithCategory = 2130903047;
+			public const int HistoryItem = 2130903047;
 			
 			// aapt resource value: 0x7f030008
-			public const int Main = 2130903048;
+			public const int HistoryItemWithCategory = 2130903048;
+			
+			// aapt resource value: 0x7f030009
+			public const int Main = 2130903049;
 			
 			static Layout()
 			{
