@@ -8,7 +8,7 @@ namespace MasonJar.ViewModel
 {
     public class Jar
     {
-        private static bool _UseMockData = true;
+        private static bool _UseMockData = false;
         private static Jar  _Instance;
 
         [MethodImpl(MethodImplOptions.Synchronized)]
@@ -79,6 +79,103 @@ namespace MasonJar.ViewModel
         private void CategoryDataChanged(object sender, EventArgs args) { CategoryCollectionChanged?.Invoke(sender, args); }
         private void ItemDataChanged(object sender, EventArgs args)     { ItemCollectionChanged?.Invoke(sender, args); }
         private void CreateHistory(Model.IHistoryItem historyModel)     { History.Add(new HistoryItem(historyModel)); }
+        public void MoveItemToHistory(Item item)                        { _Model.MoveItemToHistory(item.ItemModel); }
+
+        public Item GetItemFromStick(Stick stick)
+        {
+            Random r = new Random();
+
+            Item result;
+            if (stick.Random)
+            {
+                result = Items[r.Next(Items.Count)];
+            }
+            else
+            {
+                List<Item> matchingItems = new List<Item>();
+                foreach (Item i in Items)
+                {
+                    if (i.Category == stick.Category)
+                    {
+                        matchingItems.Add(i);
+                    }
+                }
+                result = matchingItems[r.Next(matchingItems.Count)];
+            }
+            return result;
+        }
+
+        public List<Stick> GetSticks(int maxStickCount)
+        {
+            List<Stick> sticks = new List<Stick>();
+            if (Items.Count > 0)
+            {
+                // Alright. First, get a list of all the categories, without duplicates, that are present the items, in
+                // the form of sticks. This will also capture items that have no categories (Stick.Category will be null).
+                // As we do these, keep a count of how many items are corresponding to that stick.
+                List<Stick> possibleSticks = new List<Stick>();
+                foreach (Item i in Items)
+                {
+                    bool found = false;
+                    foreach (Stick p in possibleSticks)
+                    {
+                        if (p.Category == i.Category)
+                        {
+                            p.Count++;
+                            found = true;
+                            break;
+                        }
+                    }
+
+                    if (!found)
+                    {
+                        possibleSticks.Add(new Stick(i.Category));
+                    }
+                }
+
+                // If we have more than one kind of stick, we need to have a random option. Put that at the front of sticks.
+                if (possibleSticks.Count > 1)
+                {
+                    sticks.Add(new Stick());
+                }
+                int sticksRemaining = maxStickCount - sticks.Count;
+
+                // Make a copy of possibleSticks and start seeding sticks with items from the copy at random. Decrement their count
+                // as this is done, and remove the stick from possibleSticks if the count hits zero. If we end up with extra remaining
+                // slots, go through possibleSticks at random so long as it has items still, and add them again to sticks.
+                Random r = new Random();
+                List<Stick> uniqueSticks = new List<Stick>(possibleSticks);
+                while ((sticksRemaining > 0) && (uniqueSticks.Count > 0))
+                {
+                    int nextSlot = r.Next(uniqueSticks.Count);
+                    Stick uStick = uniqueSticks[nextSlot];
+                    sticks.Add(uStick);
+                    uniqueSticks.RemoveAt(nextSlot);
+                    sticksRemaining--;
+
+                    uStick.Count--;
+                    if (uStick.Count == 0)
+                    {
+                        possibleSticks.Remove(uStick);
+                    }
+                }
+
+                while ((sticksRemaining > 0) && (possibleSticks.Count > 0))
+                {
+                    int nextSlot = r.Next(possibleSticks.Count);
+                    Stick pStick = possibleSticks[nextSlot];
+                    sticks.Add(pStick);
+                    sticksRemaining--;
+
+                    pStick.Count--;
+                    if (pStick.Count == 0)
+                    {
+                        possibleSticks.Remove(pStick);
+                    }
+                }
+            }
+            return sticks;
+        }
 
         private void CreateItem(Model.IItem itemModel, Category categoryViewModel)
         {

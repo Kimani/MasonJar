@@ -19,9 +19,9 @@ namespace MasonJar.Model.Mock
         private List<IItem>        _Items      = new List<IItem>();
         private List<IHistoryItem> _History    = new List<IHistoryItem>();
 
-        private static int MOCK_CATEGORY_COUNT = 5;
-        private static int MOCK_ITEM_COUNT     = 4;
-        private static int MOCK_HISTORY_COUNT  = 300;
+        private static int MOCK_CATEGORY_COUNT = 2;
+        private static int MOCK_ITEM_COUNT     = 2;
+        private static int MOCK_HISTORY_COUNT  = 2;
 
         public Jar()
         {
@@ -64,6 +64,7 @@ namespace MasonJar.Model.Mock
         {
             if (Items.Remove(i))
             {
+                ItemCollectionChanged?.Invoke(this, EventArgs.Empty);
                 History.Add(new HistoryItem()); HistoryCollectionChanged?.Invoke(this, EventArgs.Empty);
             }
         }

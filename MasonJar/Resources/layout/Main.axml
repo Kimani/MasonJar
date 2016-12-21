@@ -11,202 +11,395 @@
                     android:layout_width="fill_parent"
                     android:layout_height="fill_parent">
 
-    <!-- Top Row - Stick types and History Button -->
-        <RelativeLayout android:layout_width="fill_parent"
-                        android:layout_height="75dp"
+        <!-- Top Row - Stick types and History Button -->
+        <RelativeLayout android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
                         android:layout_marginTop="15dp"
                         android:layout_marginLeft="15dp"
                         android:layout_marginRight="15dp"
                         android:layout_alignParentTop="true">
 
-        <!-- History Button -->
-            <ImageButton
-                android:id="@+id/button_history"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentRight="true"
-                android:layout_width="55dp"
-                android:layout_height="55dp"
-                android:padding="0px"
-                android:adjustViewBounds="true"
-                android:scaleType="fitCenter"
-                style="?android:attr/borderlessButtonStyle"
-                android:background="@android:color/transparent"
-                android:src="@drawable/historybutton" />
+            <LinearLayout android:layout_width="fill_parent"
+                          android:layout_height="wrap_content"
+                          android:layout_alignParentTop="true"
+                          android:orientation="vertical">
+
+                <!-- Category 1 -->
+                <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                android:id="@+id/edit_selectable_category_1"
+                                android:layout_width="match_parent"
+                                android:layout_height="30dp">
+                    <ImageView android:id="@+id/edit_selectable_category_swatch_1"
+                               android:layout_alignParentTop="true"
+                               android:layout_alignParentLeft="true"
+                               android:layout_width="25dp"
+                               android:layout_height="25dp"
+                               android:layout_marginTop="2dp"
+                               android:src="@drawable/circle"
+                               android:tint="#ff0000"/>
+                    <TextView android:id="@+id/edit_selectable_category_title_1"
+                              android:layout_width="wrap_content"
+                              android:layout_height="wrap_content"
+                              android:layout_alignParentTop="true"
+                              android:layout_alignParentLeft="true"
+                              android:layout_marginLeft="45dp"
+                              android:textColor="#000000"
+                              android:textSize="20dp"
+                              android:text="Category 1" />
+                </RelativeLayout>
+
+                <!-- Category 2 -->
+                <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                android:id="@+id/edit_selectable_category_2"
+                                android:layout_width="match_parent"
+                                android:layout_height="30dp">
+                    <ImageView android:id="@+id/edit_selectable_category_swatch_2"
+                               android:layout_alignParentTop="true"
+                               android:layout_alignParentLeft="true"
+                               android:layout_width="25dp"
+                               android:layout_height="25dp"
+                               android:layout_marginTop="2dp"
+                               android:src="@drawable/circle"
+                               android:tint="#ff0000"/>
+                    <TextView android:id="@+id/edit_selectable_category_title_2"
+                              android:layout_width="wrap_content"
+                              android:layout_height="wrap_content"
+                              android:layout_alignParentTop="true"
+                              android:layout_alignParentLeft="true"
+                              android:layout_marginLeft="45dp"
+                              android:textColor="#000000"
+                              android:textSize="20dp"
+                              android:text="Category 2" />
+                </RelativeLayout>
+
+                <!-- Category 3 -->
+                <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                android:id="@+id/edit_selectable_category_3"
+                                android:layout_width="match_parent"
+                                android:layout_height="30dp">
+                    <ImageView android:id="@+id/edit_selectable_category_swatch_3"
+                               android:layout_alignParentTop="true"
+                               android:layout_alignParentLeft="true"
+                               android:layout_width="25dp"
+                               android:layout_height="25dp"
+                               android:layout_marginTop="2dp"
+                               android:src="@drawable/circle"
+                               android:tint="#ff0000"/>
+                    <TextView android:id="@+id/edit_selectable_category_title_3"
+                              android:layout_width="wrap_content"
+                              android:layout_height="wrap_content"
+                              android:layout_alignParentTop="true"
+                              android:layout_alignParentLeft="true"
+                              android:layout_marginLeft="45dp"
+                              android:textColor="#000000"
+                              android:textSize="20dp"
+                              android:text="Category 3" />
+                </RelativeLayout>
+
+                <!-- Category 4 -->
+                <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                android:id="@+id/edit_selectable_category_4"
+                                android:layout_width="match_parent"
+                                android:layout_height="30dp">
+                    <ImageView android:id="@+id/edit_selectable_category_swatch_4"
+                               android:layout_alignParentTop="true"
+                               android:layout_alignParentLeft="true"
+                               android:layout_width="25dp"
+                               android:layout_height="25dp"
+                               android:layout_marginTop="2dp"
+                               android:src="@drawable/circle"
+                               android:tint="#ff0000"/>
+                    <TextView android:id="@+id/edit_selectable_category_title_4"
+                              android:layout_width="wrap_content"
+                              android:layout_height="wrap_content"
+                              android:layout_alignParentTop="true"
+                              android:layout_alignParentLeft="true"
+                              android:layout_marginLeft="45dp"
+                              android:textColor="#000000"
+                              android:textSize="20dp"
+                              android:text="Category 4" />
+                </RelativeLayout>
+            </LinearLayout>
+
+            <!-- History Button -->
+            <ImageButton android:id="@+id/button_history"
+                          android:layout_alignParentTop="true"
+                          android:layout_alignParentRight="true"
+                          android:layout_width="55dp"
+                          android:layout_height="55dp"
+                          android:padding="0px"
+                          android:adjustViewBounds="true"
+                          android:scaleType="fitCenter"
+                          style="?android:attr/borderlessButtonStyle"
+                          android:background="@android:color/transparent"
+                          android:src="@drawable/historybutton" />
         </RelativeLayout>
-    <!-- Bottom Row - Edit and Tutorial -->
-        <RelativeLayout
-            android:layout_width="fill_parent"
-            android:layout_height="55dp"
-            android:layout_marginBottom="15dp"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="15dp"
-            android:layout_alignParentBottom="true">
-        <!-- Edit Button -->
-            <ImageButton
-                android:id="@+id/button_edit"
-                android:layout_alignParentTop="true"
-                android:layout_width="55dp"
-                android:layout_height="55dp"
-                android:padding="0px"
-                android:adjustViewBounds="true"
-                android:scaleType="fitCenter"
-                style="?android:attr/borderlessButtonStyle"
-                android:background="@android:color/transparent"
-                android:src="@drawable/editbutton" />
-        <!-- Help Button -->
-            <ImageButton
-                android:id="@+id/button_help"
-                android:layout_alignParentBottom="true"
-                android:layout_alignParentRight="true"
-                android:layout_width="55dp"
-                android:layout_height="55dp"
-                android:padding="0px"
-                android:adjustViewBounds="true"
-                android:scaleType="fitCenter"
-                style="?android:attr/borderlessButtonStyle"
-                android:background="@android:color/transparent"
-                android:src="@drawable/helpbutton" />
+
+        <!-- Bottom Row - Edit and Tutorial -->
+        <RelativeLayout android:layout_width="fill_parent"
+                        android:layout_height="55dp"
+                        android:layout_marginBottom="15dp"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginRight="15dp"
+                        android:layout_alignParentBottom="true">
+            <!-- Edit Button -->
+            <ImageButton android:id="@+id/button_edit"
+                         android:layout_alignParentTop="true"
+                         android:layout_width="55dp"
+                         android:layout_height="55dp"
+                         android:padding="0px"
+                         android:adjustViewBounds="true"
+                         android:scaleType="fitCenter"
+                         style="?android:attr/borderlessButtonStyle"
+                         android:background="@android:color/transparent"
+                         android:src="@drawable/editbutton" />
+            <!-- Help Button -->
+            <ImageButton android:id="@+id/button_help"
+                         android:layout_alignParentBottom="true"
+                         android:layout_alignParentRight="true"
+                         android:layout_width="55dp"
+                         android:layout_height="55dp"
+                         android:padding="0px"
+                         android:adjustViewBounds="true"
+                         android:scaleType="fitCenter"
+                         style="?android:attr/borderlessButtonStyle"
+                         android:background="@android:color/transparent"
+                         android:src="@drawable/helpbutton" />
         </RelativeLayout>
-    <!-- Center - Mason Jar and Sticks -->
-        <RelativeLayout
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:layout_centerInParent="true"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentRight="true"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="15dp"
-            android:layout_marginBottom="85dp"
-            android:layout_marginTop="105dp">
-            <RelativeLayout
-                android:layout_width="fill_parent"
-                android:layout_alignParentTop="true"
-                android:layout_height="150dp" />
-            <ImageView
-                android:id="@+id/imageView1"
-                android:layout_marginTop="125dp"
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
-                android:layout_alignParentBottom="true"
-                android:src="@drawable/jar" />
-        </RelativeLayout>
-    <!-- Tutorial Overlay -->
-        <RelativeLayout
-            android:id="@+id/help_content_parent"
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:layout_centerInParent="true"
-            android:clipChildren="false"
-            android:visibility="gone"
-            android:clickable="true"
-            android:background="#30000000">
-        <!-- Step 1 -->
-            <TextView
-                android:id="@+id/tutorial_step1"
-                android:text="@string/tutorial_step1"
-                android:textSize="26dp"
-                android:textColor="#FFFFFF"
-                android:layout_width="fill_parent"
-                android:layout_height="55dp"
-                android:layout_marginBottom="85dp"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
-                android:paddingLeft="15dp"
-                android:gravity="center_vertical"
-                android:background="@drawable/darkborder"
-                android:layout_alignParentBottom="true" />
-            <ImageView
-                android:layout_width="72dp"
-                android:layout_height="55dp"
-                android:layout_marginBottom="15dp"
-                android:layout_marginLeft="80dp"
-                android:layout_alignParentBottom="true"
-                android:layout_alignParentLeft="true"
-                android:src="@drawable/arrow_bent" />
-        <!-- Step 2 -->
-            <RelativeLayout
-                android:id="@+id/tutorial_step2"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="155dp"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
-                android:paddingTop="10dp"
-                android:paddingBottom="10dp"
-                android:paddingLeft="15dp"
-                android:gravity="center_vertical"
-                android:clipChildren="false"
-                android:clipToPadding="false"
-                android:background="@drawable/darkborder"
-                android:layout_alignParentBottom="true">
-                <TextView
-                    android:text="@string/tutorial_step2"
-                    android:layout_width="fill_parent"
-                    android:textSize="26dp"
-                    android:textColor="#FFFFFF"
-                    android:clipChildren="false"
-                    android:layout_height="wrap_content" />
-                <ImageView
-                    android:layout_width="55dp"
-                    android:layout_height="72dp"
-                    android:layout_alignParentTop="true"
-                    android:layout_centerHorizontal="true"
-                    android:layout_marginTop="-87dp"
-                    android:src="@drawable/arrow_up" />
+
+        <!-- Center - Mason Jar and Sticks -->
+        <FrameLayout android:layout_width="match_parent"
+                     android:layout_height="match_parent"
+                     android:layout_centerInParent="true"
+                     android:layout_alignParentTop="true"
+                     android:layout_alignParentRight="true"
+                     android:layout_marginLeft="15dp"
+                     android:layout_marginRight="15dp"
+                     android:layout_marginBottom="5dp"
+                     android:layout_marginTop="110dp">
+
+            <ImageView android:id="@+id/jar_image"
+                       android:layout_width="match_parent"
+                       android:layout_height="match_parent"
+                       android:src="@drawable/jar_stick4" />
+
+            <ImageView android:id="@+id/jar_image_circle1"
+                       android:layout_width="match_parent"
+                       android:layout_height="match_parent"
+                       android:layout_gravity="top"
+                       android:src="@drawable/stick3_circle1" />
+
+            <ImageView android:id="@+id/jar_image_circle2"
+                         android:layout_width="match_parent"
+                         android:layout_height="match_parent"
+                         android:layout_gravity="top"
+                         android:src="@drawable/stick3_circle2" />
+
+            <ImageView android:id="@+id/jar_image_circle3"
+                         android:layout_width="match_parent"
+                         android:layout_height="match_parent"
+                         android:layout_gravity="top"
+                         android:src="@drawable/stick3_circle3" />
+
+            <ImageView android:id="@+id/jar_image_circle4"
+                         android:layout_width="match_parent"
+                         android:layout_height="match_parent"
+                         android:layout_gravity="top"
+                         android:visibility="gone"
+                         android:src="@drawable/stick4_circle4" />
+
+            <ImageView android:id="@+id/jar_image_hit"
+                       android:layout_width="match_parent"
+                       android:layout_height="match_parent"
+                       android:visibility="invisible"
+                       android:src="@drawable/hit_stick4"
+                       android:clickable="true"/>
+        </FrameLayout>
+
+        <!-- Tutorial Overlay -->
+        <RelativeLayout android:id="@+id/help_content_parent"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:layout_centerInParent="true"
+                        android:clipChildren="false"
+                        android:visibility="gone"
+                        android:clickable="true"
+                        android:background="#30000000">
+
+            <!-- Step 1 -->
+            <TextView android:id="@+id/tutorial_step1"
+                      android:text="@string/tutorial_step1"
+                      android:textSize="26dp"
+                      android:textColor="#FFFFFF"
+                      android:layout_width="fill_parent"
+                      android:layout_height="55dp"
+                      android:layout_marginBottom="85dp"
+                      android:layout_marginLeft="15dp"
+                      android:layout_marginRight="15dp"
+                      android:paddingLeft="15dp"
+                      android:gravity="center_vertical"
+                      android:background="@drawable/darkborder"
+                      android:layout_alignParentBottom="true" />
+            <ImageView android:layout_width="72dp"
+                       android:layout_height="55dp"
+                       android:layout_marginBottom="15dp"
+                       android:layout_marginLeft="80dp"
+                       android:layout_alignParentBottom="true"
+                       android:layout_alignParentLeft="true"
+                       android:src="@drawable/arrow_bent" />
+
+            <!-- Step 2 -->
+            <RelativeLayout android:id="@+id/tutorial_step2"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="155dp"
+                            android:layout_marginLeft="15dp"
+                            android:layout_marginRight="15dp"
+                            android:paddingTop="10dp"
+                            android:paddingBottom="10dp"
+                            android:paddingLeft="15dp"
+                            android:gravity="center_vertical"
+                            android:clipChildren="false"
+                            android:clipToPadding="false"
+                            android:background="@drawable/darkborder"
+                            android:layout_alignParentBottom="true">
+                <TextView android:text="@string/tutorial_step2"
+                          android:layout_width="fill_parent"
+                          android:textSize="26dp"
+                          android:textColor="#FFFFFF"
+                          android:clipChildren="false"
+                          android:layout_height="wrap_content" />
+                <ImageView android:layout_width="55dp"
+                           android:layout_height="72dp"
+                           android:layout_alignParentTop="true"
+                           android:layout_centerHorizontal="true"
+                           android:layout_marginTop="-87dp"
+                           android:src="@drawable/arrow_up" />
             </RelativeLayout>
-        <!-- Step 3 -->
-            <RelativeLayout
-                android:id="@+id/tutorial_step3"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
-                android:paddingLeft="15dp"
-                android:paddingTop="10dp"
-                android:paddingBottom="10dp"
-                android:gravity="center_vertical"
-                android:background="@drawable/darkborder"
-                android:clipChildren="false"
-                android:clipToPadding="false"
-                android:layout_centerVertical="true">
-                <TextView
-                    android:text="@string/tutorial_step3"
-                    android:textSize="26dp"
-                    android:textColor="#FFFFFF"
-                    android:layout_width="fill_parent"
-                    android:clipChildren="false"
-                    android:layout_height="wrap_content" />
-                <ImageView
-                    android:layout_width="55dp"
-                    android:layout_height="72dp"
-                    android:layout_alignParentTop="true"
-                    android:layout_centerHorizontal="true"
-                    android:layout_marginTop="-87dp"
-                    android:src="@drawable/arrow_up" />
+
+            <!-- Step 3 -->
+            <RelativeLayout android:id="@+id/tutorial_step3"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="15dp"
+                            android:layout_marginRight="15dp"
+                            android:paddingLeft="15dp"
+                            android:paddingTop="10dp"
+                            android:paddingBottom="10dp"
+                            android:gravity="center_vertical"
+                            android:background="@drawable/darkborder"
+                            android:clipChildren="false"
+                            android:clipToPadding="false"
+                            android:layout_centerVertical="true">
+                <TextView android:text="@string/tutorial_step3"
+                          android:textSize="26dp"
+                          android:textColor="#FFFFFF"
+                          android:layout_width="fill_parent"
+                          android:clipChildren="false"
+                          android:layout_height="wrap_content" />
+                <ImageView android:layout_width="55dp"
+                           android:layout_height="72dp"
+                           android:layout_alignParentTop="true"
+                           android:layout_centerHorizontal="true"
+                           android:layout_marginTop="-87dp"
+                           android:src="@drawable/arrow_up" />
             </RelativeLayout>
-        <!-- Step 4 -->
-            <TextView
-                android:id="@+id/tutorial_step4"
-                android:text="@string/tutorial_step4"
-                android:textSize="26dp"
-                android:textColor="#FFFFFF"
-                android:layout_width="fill_parent"
-                android:layout_height="55dp"
-                android:layout_marginTop="15dp"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="165dp"
-                android:paddingLeft="15dp"
-                android:gravity="center_vertical"
-                android:background="@drawable/darkborder"
-                android:layout_alignParentTop="true" />
-            <ImageView
-                android:layout_width="72dp"
-                android:layout_height="55dp"
-                android:layout_marginTop="15dp"
-                android:layout_marginRight="80dp"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentRight="true"
-                android:src="@drawable/arrow_right" />
+
+            <!-- Step 4 -->
+            <TextView android:id="@+id/tutorial_step4"
+                      android:text="@string/tutorial_step4"
+                      android:textSize="26dp"
+                      android:textColor="#FFFFFF"
+                      android:layout_width="fill_parent"
+                      android:layout_height="55dp"
+                      android:layout_marginTop="15dp"
+                      android:layout_marginLeft="15dp"
+                      android:layout_marginRight="165dp"
+                      android:paddingLeft="15dp"
+                      android:gravity="center_vertical"
+                      android:background="@drawable/darkborder"
+                      android:layout_alignParentTop="true" />
+            <ImageView android:layout_width="72dp"
+                       android:layout_height="55dp"
+                       android:layout_marginTop="15dp"
+                       android:layout_marginRight="80dp"
+                       android:layout_alignParentTop="true"
+                       android:layout_alignParentRight="true"
+                       android:src="@drawable/arrow_right" />
         </RelativeLayout>
+
+        <!-- Stick Selection Screen -->
+        <RelativeLayout android:id="@+id/main_overlay_stick_selection"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_centerInParent="true"
+                        android:visibility="gone"
+                        android:clickable="true"
+                        android:background="#E0FFFFFF">
+
+            <LinearLayout android:layout_width="match_parent"
+                          android:layout_height="wrap_content"
+                          android:layout_centerInParent="true"
+                          android:gravity="center_horizontal"
+                          android:orientation="vertical">
+
+                <!-- Stick -->
+                <RelativeLayout android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center_horizontal">
+                    <ImageView android:layout_width="match_parent"
+                               android:layout_height="wrap_content"
+                               android:layout_alignParentTop="true"
+                               android:src="@drawable/stick"
+                               android:padding="0dp"
+                               android:adjustViewBounds="true"
+                               android:layout_margin="0dp"/>
+                    <ImageView android:id="@+id/main_stick_selection_swatch"
+                               android:layout_width="30dp"
+                               android:layout_height="30dp"
+                               android:layout_marginTop="13dp"
+                               android:layout_marginLeft="17dp"
+                               android:layout_alignParentTop="true"
+                               android:src="@drawable/circle"
+                               android:tint="#ff0000"/>
+                    <TextView android:id="@+id/main_stick_selection_content"
+                              android:layout_width="match_parent"
+                              android:layout_height="wrap_content"
+                              android:layout_alignParentTop="true"
+                              android:layout_marginTop="5dp"
+                              android:layout_marginLeft="55dp"
+                              android:textColor="#000000"
+                              android:textSize="30dp"
+                              android:text="Cat Test!" />
+                </RelativeLayout>
+
+                <!-- Category Title -->
+                <TextView android:id="@+id/main_stick_selection_category_title"
+                          android:layout_width="match_parent"
+                          android:layout_height="wrap_content"
+                          android:layout_marginTop="1dp"
+                          android:gravity="center_horizontal"
+                          android:textColor="#000000"
+                          android:textSize="20dp"
+                          android:text="Category!" />
+
+                <!-- Buttons -->
+                <Button android:id="@+id/main_stick_selection_remove_stick"
+                        android:text="Remove Stick from Jar"
+                        android:textSize="30dp"
+                        android:gravity="center_horizontal"
+                        android:layout_height="wrap_content"
+                        android:layout_width="400dp"
+                        android:layout_marginTop="50dp"
+                        android:layout_marginBottom="15dp"/>
+                <Button android:id="@+id/main_stick_selection_replace_stick"
+                        android:text="Put Stick back into Jar"
+                        android:textSize="30dp"
+                        android:gravity="center_horizontal"
+                        android:layout_height="wrap_content"
+                        android:layout_width="400dp" />
+            </LinearLayout>
+        </RelativeLayout>
+
     </RelativeLayout>
 </LinearLayout>

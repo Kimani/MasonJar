@@ -156,19 +156,115 @@ namespace MasonJar
 			public const int historybutton = 2130837533;
 			
 			// aapt resource value: 0x7f02001e
-			public const int Icon = 2130837534;
+			public const int hit_empty = 2130837534;
 			
 			// aapt resource value: 0x7f02001f
-			public const int Jar = 2130837535;
+			public const int hit_stick1 = 2130837535;
 			
 			// aapt resource value: 0x7f020020
-			public const int picnicbkg = 2130837536;
+			public const int hit_stick2 = 2130837536;
 			
 			// aapt resource value: 0x7f020021
-			public const int stick = 2130837537;
+			public const int hit_stick3 = 2130837537;
 			
 			// aapt resource value: 0x7f020022
-			public const int swatch = 2130837538;
+			public const int hit_stick4 = 2130837538;
+			
+			// aapt resource value: 0x7f020023
+			public const int Icon = 2130837539;
+			
+			// aapt resource value: 0x7f020024
+			public const int Jar_Empty = 2130837540;
+			
+			// aapt resource value: 0x7f020025
+			public const int Jar_ShakeLeft = 2130837541;
+			
+			// aapt resource value: 0x7f020026
+			public const int Jar_ShakeRight = 2130837542;
+			
+			// aapt resource value: 0x7f020027
+			public const int Jar_Stick1 = 2130837543;
+			
+			// aapt resource value: 0x7f020028
+			public const int Jar_Stick2 = 2130837544;
+			
+			// aapt resource value: 0x7f020029
+			public const int Jar_Stick3 = 2130837545;
+			
+			// aapt resource value: 0x7f02002a
+			public const int Jar_Stick4 = 2130837546;
+			
+			// aapt resource value: 0x7f02002b
+			public const int picnicbkg = 2130837547;
+			
+			// aapt resource value: 0x7f02002c
+			public const int random = 2130837548;
+			
+			// aapt resource value: 0x7f02002d
+			public const int stick = 2130837549;
+			
+			// aapt resource value: 0x7f02002e
+			public const int stick1_circle1 = 2130837550;
+			
+			// aapt resource value: 0x7f02002f
+			public const int stick1_random1 = 2130837551;
+			
+			// aapt resource value: 0x7f020030
+			public const int stick2_circle1 = 2130837552;
+			
+			// aapt resource value: 0x7f020031
+			public const int stick2_circle2 = 2130837553;
+			
+			// aapt resource value: 0x7f020032
+			public const int stick2_random1 = 2130837554;
+			
+			// aapt resource value: 0x7f020033
+			public const int stick2_random2 = 2130837555;
+			
+			// aapt resource value: 0x7f020034
+			public const int stick3_circle1 = 2130837556;
+			
+			// aapt resource value: 0x7f020035
+			public const int stick3_circle2 = 2130837557;
+			
+			// aapt resource value: 0x7f020036
+			public const int stick3_circle3 = 2130837558;
+			
+			// aapt resource value: 0x7f020037
+			public const int stick3_random1 = 2130837559;
+			
+			// aapt resource value: 0x7f020038
+			public const int stick3_random2 = 2130837560;
+			
+			// aapt resource value: 0x7f020039
+			public const int stick3_random3 = 2130837561;
+			
+			// aapt resource value: 0x7f02003a
+			public const int stick4_circle1 = 2130837562;
+			
+			// aapt resource value: 0x7f02003b
+			public const int stick4_circle2 = 2130837563;
+			
+			// aapt resource value: 0x7f02003c
+			public const int stick4_circle3 = 2130837564;
+			
+			// aapt resource value: 0x7f02003d
+			public const int stick4_circle4 = 2130837565;
+			
+			// aapt resource value: 0x7f02003e
+			public const int stick4_random1 = 2130837566;
+			
+			// aapt resource value: 0x7f02003f
+			public const int stick4_random2 = 2130837567;
+			
+			// aapt resource value: 0x7f020040
+			public const int stick4_random3 = 2130837568;
+			
+			// aapt resource value: 0x7f020041
+			public const int stick4_random4 = 2130837569;
+			
+			// aapt resource value: 0x7f020042
+			public const int swatch = 2130837570;
 			
 			static Drawable()
 			{
@@ -183,14 +279,14 @@ namespace MasonJar
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7f060035
-			public const int button_edit = 2131099701;
+			// aapt resource value: 0x7f060041
+			public const int button_edit = 2131099713;
 			
-			// aapt resource value: 0x7f060036
-			public const int button_help = 2131099702;
+			// aapt resource value: 0x7f060042
+			public const int button_help = 2131099714;
 			
-			// aapt resource value: 0x7f060034
-			public const int button_history = 2131099700;
+			// aapt resource value: 0x7f060040
+			public const int button_history = 2131099712;
 			
 			// aapt resource value: 0x7f060027
 			public const int edit_button_add_category = 2131099687;
@@ -324,14 +420,50 @@ namespace MasonJar
 			// aapt resource value: 0x7f06002c
 			public const int edit_selectable_category = 2131099692;
 			
+			// aapt resource value: 0x7f060034
+			public const int edit_selectable_category_1 = 2131099700;
+			
+			// aapt resource value: 0x7f060037
+			public const int edit_selectable_category_2 = 2131099703;
+			
+			// aapt resource value: 0x7f06003a
+			public const int edit_selectable_category_3 = 2131099706;
+			
+			// aapt resource value: 0x7f06003d
+			public const int edit_selectable_category_4 = 2131099709;
+			
 			// aapt resource value: 0x7f06002d
 			public const int edit_selectable_category_swatch = 2131099693;
+			
+			// aapt resource value: 0x7f060035
+			public const int edit_selectable_category_swatch_1 = 2131099701;
+			
+			// aapt resource value: 0x7f060038
+			public const int edit_selectable_category_swatch_2 = 2131099704;
+			
+			// aapt resource value: 0x7f06003b
+			public const int edit_selectable_category_swatch_3 = 2131099707;
+			
+			// aapt resource value: 0x7f06003e
+			public const int edit_selectable_category_swatch_4 = 2131099710;
 			
 			// aapt resource value: 0x7f06002e
 			public const int edit_selectable_category_title = 2131099694;
 			
-			// aapt resource value: 0x7f060038
-			public const int help_content_parent = 2131099704;
+			// aapt resource value: 0x7f060036
+			public const int edit_selectable_category_title_1 = 2131099702;
+			
+			// aapt resource value: 0x7f060039
+			public const int edit_selectable_category_title_2 = 2131099705;
+			
+			// aapt resource value: 0x7f06003c
+			public const int edit_selectable_category_title_3 = 2131099708;
+			
+			// aapt resource value: 0x7f06003f
+			public const int edit_selectable_category_title_4 = 2131099711;
+			
+			// aapt resource value: 0x7f060049
+			public const int help_content_parent = 2131099721;
 			
 			// aapt resource value: 0x7f060032
 			public const int history_category_swatch = 2131099698;
@@ -345,8 +477,41 @@ namespace MasonJar
 			// aapt resource value: 0x7f060030
 			public const int history_content = 2131099696;
 			
-			// aapt resource value: 0x7f060037
-			public const int imageView1 = 2131099703;
+			// aapt resource value: 0x7f060043
+			public const int jar_image = 2131099715;
+			
+			// aapt resource value: 0x7f060044
+			public const int jar_image_circle1 = 2131099716;
+			
+			// aapt resource value: 0x7f060045
+			public const int jar_image_circle2 = 2131099717;
+			
+			// aapt resource value: 0x7f060046
+			public const int jar_image_circle3 = 2131099718;
+			
+			// aapt resource value: 0x7f060047
+			public const int jar_image_circle4 = 2131099719;
+			
+			// aapt resource value: 0x7f060048
+			public const int jar_image_hit = 2131099720;
+			
+			// aapt resource value: 0x7f06004e
+			public const int main_overlay_stick_selection = 2131099726;
+			
+			// aapt resource value: 0x7f060051
+			public const int main_stick_selection_category_title = 2131099729;
+			
+			// aapt resource value: 0x7f060050
+			public const int main_stick_selection_content = 2131099728;
+			
+			// aapt resource value: 0x7f060052
+			public const int main_stick_selection_remove_stick = 2131099730;
+			
+			// aapt resource value: 0x7f060053
+			public const int main_stick_selection_replace_stick = 2131099731;
+			
+			// aapt resource value: 0x7f06004f
+			public const int main_stick_selection_swatch = 2131099727;
 			
 			// aapt resource value: 0x7f060000
 			public const int maineditlayout = 2131099648;
@@ -354,17 +519,17 @@ namespace MasonJar
 			// aapt resource value: 0x7f060033
 			public const int mainlayout = 2131099699;
 			
-			// aapt resource value: 0x7f060039
-			public const int tutorial_step1 = 2131099705;
+			// aapt resource value: 0x7f06004a
+			public const int tutorial_step1 = 2131099722;
 			
-			// aapt resource value: 0x7f06003a
-			public const int tutorial_step2 = 2131099706;
+			// aapt resource value: 0x7f06004b
+			public const int tutorial_step2 = 2131099723;
 			
-			// aapt resource value: 0x7f06003b
-			public const int tutorial_step3 = 2131099707;
+			// aapt resource value: 0x7f06004c
+			public const int tutorial_step3 = 2131099724;
 			
-			// aapt resource value: 0x7f06003c
-			public const int tutorial_step4 = 2131099708;
+			// aapt resource value: 0x7f06004d
+			public const int tutorial_step4 = 2131099725;
 			
 			static Id()
 			{

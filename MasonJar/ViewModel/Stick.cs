@@ -7,17 +7,20 @@ namespace MasonJar.ViewModel
     {
         public Category Category { get; private set; }
         public bool     Random   { get; private set; }
+        public int      Count    { get; set; }
 
         public Stick(Category c)
         {
             Category = c;
             Random = false;
+            Count = 1;
         }
 
         public Stick()
         {
             Category = null;
             Random = true;
+            Count = 0;
         }
     }
 }
