@@ -1,5 +1,6 @@
 // [Ready Design Corps] - [Mason Jar] - Copyright 2016
 
+using Android.Content;
 using System;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
@@ -12,11 +13,11 @@ namespace MasonJar.ViewModel
         private static Jar  _Instance;
 
         [MethodImpl(MethodImplOptions.Synchronized)]
-        public static Jar GetInstance()
+        public static Jar GetInstance(Context c)
         {
             if (_Instance == null)
             {
-                _Instance = new Jar();
+                _Instance = new Jar(c);
             }
             return _Instance;
         }
@@ -34,9 +35,9 @@ namespace MasonJar.ViewModel
         private List<Category>    _ActiveCategories = new List<Category>();
         private List<HistoryItem> _HistoryItems     = new List<HistoryItem>();
 
-        private Jar()
+        private Jar(Context context)
         {
-            _Model = Model.JarFactory.GetInstance(_UseMockData);
+            _Model = Model.JarFactory.GetInstance(context, _UseMockData);
             _Model.CategoryCollectionChanged += CategoryModelCollectionChanged;
             _Model.HistoryCollectionChanged += HistoryModelCollectionChanged;
             _Model.ItemCollectionChanged += ItemModelCollectionChanged;

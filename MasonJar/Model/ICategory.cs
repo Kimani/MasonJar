@@ -12,5 +12,6 @@ namespace MasonJar.Model
 
         string Title { get; set; }
         Color  Color { get; set; }
+        int    Id    { get; }
     }
 }

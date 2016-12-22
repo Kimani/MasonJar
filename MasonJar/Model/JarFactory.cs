@@ -1,5 +1,6 @@
 // [Ready Design Corps] - [Mason Jar] - Copyright 2016
 
+using Android.Content;
 using System.Runtime.CompilerServices;
 
 namespace MasonJar.Model
@@ -10,7 +11,7 @@ namespace MasonJar.Model
         private static IJar _MockInstance;
 
         [MethodImpl(MethodImplOptions.Synchronized)]
-        public static IJar GetInstance(bool mock)
+        public static IJar GetInstance(Context c, bool mock)
         {
             if (mock && (_MockInstance == null))
             {
@@ -18,7 +19,7 @@ namespace MasonJar.Model
             }
             else if (!mock && (_RealInstance == null))
             {
-                _RealInstance = new Real.Jar();
+                _RealInstance = new Real.Jar(c);
             }
 
             return mock ? _MockInstance : _RealInstance;

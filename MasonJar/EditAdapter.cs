@@ -4,6 +4,7 @@ using System;
 using Android.Views;
 using Android.Widget;
 using MasonJar.Common;
+using Android.Content;
 
 namespace MasonJar
 {
@@ -21,6 +22,7 @@ namespace MasonJar
             }
         }
 
+        private Context          _Context;
         private ViewModel.Jar    _JarViewModel;
         private LayoutInflater   _Inflater;
         private View             _CategoriesHeader;
@@ -30,8 +32,9 @@ namespace MasonJar
         private Java.Lang.String _ItemsHeaderDataItem = new Java.Lang.String("Items");
 
         // Methods
-        public EditAdapter(ViewModel.Jar jarViewModel, View categoriesHeaderView, View itemsHeaderView, CallbackSet callbacks, LayoutInflater inflater)
+        public EditAdapter(Context context, ViewModel.Jar jarViewModel, View categoriesHeaderView, View itemsHeaderView, CallbackSet callbacks, LayoutInflater inflater)
         {
+            _Context = context;
             _Inflater = inflater;
             _CategoriesHeader = categoriesHeaderView;
             _ItemsHeader = itemsHeaderView;
@@ -102,8 +105,9 @@ namespace MasonJar
                 }
                 else
                 {
-                    resultView.FindViewById<ImageView>(Resource.Id.edit_item_swatch).SetImageResource(Resource.Drawable.circle_dashed);
-                    resultView.FindViewById<ImageView>(Resource.Id.edit_item_swatch).SetColorFilter(Android.Graphics.Color.Argb(0x3A, 0, 0 , 0), Android.Graphics.PorterDuff.Mode.Multiply);
+                    ImageView imageView = resultView.FindViewById<ImageView>(Resource.Id.edit_item_swatch);
+                    ViewHelper.SetScaledImage(_Context, imageView, Resource.Drawable.circle_dashed);
+                    imageView.SetColorFilter(Android.Graphics.Color.Argb(0x3A, 0, 0 , 0), Android.Graphics.PorterDuff.Mode.Multiply);
                 }
             }
             return resultView;

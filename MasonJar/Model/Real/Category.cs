@@ -19,13 +19,38 @@ namespace MasonJar.Model.Real
             set { if (_Color != value) { _Color = value; ColorUpdated?.Invoke(this, EventArgs.Empty); } }
         }
 
+        public int Id { get; private set; }
+
         private string _Title = "";
         private Color  _Color;
 
         public event EventHandler TitleUpdated;
         public event EventHandler ColorUpdated;
 
-        public Category(Color c)               { _Color = c; }
-        public Category(Color c, string title) { _Color = c; _Title = title; }
+        public Category(Color c, string title)
+        {
+            _Color = c;
+            _Title = title;
+            Id = new Random().Next();
+        }
+
+        public Category(string data)
+        {
+            // Get the category from string data.
+            string[] dataTokens = data.Split(null);
+            Id = int.Parse(dataTokens[0]);
+            _Color = Color.FromArgb(int.Parse(dataTokens[1]));
+
+            _Title = dataTokens[2];
+            for (int i = 3; i < dataTokens.Length; ++i)
+            {
+                _Title += " " + dataTokens[i];
+            }
+        }
+
+        public override string ToString()
+        {
+            return Id + " " + _Color.ToArgb() + " " + _Title;
+        }
     }
 }

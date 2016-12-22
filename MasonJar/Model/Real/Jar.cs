@@ -1,5 +1,7 @@
 // [Ready Design Corps] - [Mason Jar] - Copyright 2016
 
+using Android.Content;
+using Android.Preferences;
 using MasonJar.Common;
 using System;
 using System.Collections.Generic;
@@ -21,6 +23,44 @@ namespace MasonJar.Model.Real
         private List<IItem>        _Items          = new List<IItem>();
         private List<IHistoryItem> _History        = new List<IHistoryItem>();
         private int                _NextColorIndex = 0;
+        private ISharedPreferences _SharedPreferences;
+
+        private static string CATEGORIES_KEY = "categories";
+        private static string ITEMS_KEY      = "items";
+        private static string HISTORY_KEY    = "history";
+
+        public Jar(Context c)
+        {
+            // Load data from preferences.
+            _SharedPreferences = PreferenceManager.GetDefaultSharedPreferences(c);
+
+            ICollection<string> categoryData = _SharedPreferences.GetStringSet(CATEGORIES_KEY, null);
+            if (categoryData != null)
+            {
+                foreach (string data in categoryData)
+                {
+                    AddNewCategory(new Category(data), true);
+                }
+            }
+
+            ICollection<string> itemsData = _SharedPreferences.GetStringSet(ITEMS_KEY, null);
+            if (itemsData != null)
+            {
+                foreach (string data in itemsData)
+                {
+                    AddNewItem(new Item(data, _Categories), true);
+                }
+            }
+
+            ICollection<string> historyData = _SharedPreferences.GetStringSet(HISTORY_KEY, null);
+            if (historyData != null)
+            {
+                foreach (string data in historyData)
+                {
+                    AddNewHistoryItem(new HistoryItem(data), true);
+                }
+            }
+        }
 
         public void AddNewCategory()
         {
@@ -58,21 +98,45 @@ namespace MasonJar.Model.Real
             Color nextColor = ((CategorySwatch)swatchValues.GetValue(nextColorIndex)).GetColor();
 
             // Create the new category.
-            _Categories.Add(new Category(nextColor));
-            CategoryCollectionChanged?.Invoke(this, EventArgs.Empty);
+            AddNewCategory(new Category(nextColor, "New Category"));
+        }
+
+        private void AddNewCategory(Category category, bool init = false)
+        {
+            category.ColorUpdated += CategoryOrItemValueChanged;
+            category.TitleUpdated += CategoryOrItemValueChanged;
+
+            Categories.Add(category);
+            if (!init)
+            {
+                CategoryListChanged();
+            }
         }
 
         public void AddNewItem()
         {
-            _Items.Add(new Item());
+            AddNewItem(new Item(null, "New Stick"));
+
             ItemCollectionChanged?.Invoke(this, EventArgs.Empty);
+        }
+
+        private void AddNewItem(Item item, bool init = false)
+        {
+            item.CategoryChanged += CategoryOrItemValueChanged;
+            item.ContentChanged += CategoryOrItemValueChanged;
+
+            Items.Add(item);
+            if (!init)
+            {
+                ItemListChanged();
+            }
         }
 
         public void RemoveItem(IItem i)
         {
             if (_Items.Remove(i))
             {
-                ItemCollectionChanged?.Invoke(this, EventArgs.Empty);
+                ItemListChanged();
             }
         }
 
@@ -80,7 +144,7 @@ namespace MasonJar.Model.Real
         {
             if (_Categories.Remove(c))
             {
-                CategoryCollectionChanged?.Invoke(this, EventArgs.Empty);
+                CategoryListChanged();
             }
         }
 
@@ -88,14 +152,70 @@ namespace MasonJar.Model.Real
         {
             if (_Items.Contains(i))
             {
-                HistoryItem historyItem = (i.Category != null) ? new HistoryItem(i.Category.Title, i.Category.Color, i.Content) :
-                                                                 new HistoryItem(null, null, i.Content);
-                _Items.Remove(i);
-                _History.Add(historyItem);
+                // Add the new history item, which doesn't save the data to disk. Removing the item from Items will save data to disk.
+                AddNewHistoryItem((i.Category != null) ? new HistoryItem(i.Category.Title, i.Category.Color, i.Content) :
+                                                         new HistoryItem(null, null, i.Content));
+                RemoveItem(i);
+            }
+        }
 
-                ItemCollectionChanged?.Invoke(this, EventArgs.Empty);
+        private void AddNewHistoryItem(HistoryItem item, bool init = false)
+        {
+            _History.Add(item);
+
+            if (!init)
+            {
+                // Dont need to save data at this juncture. This gets called on init or when moving item to history.
+                // Data will get saved when the move the item to history.
                 HistoryCollectionChanged?.Invoke(this, EventArgs.Empty);
             }
+        }
+
+        private void CategoryOrItemValueChanged(object sender, EventArgs args)
+        {
+            // Category color/title or item content/category changed. Resave content.
+            SaveDataToPreferences();
+        }
+
+        private void ItemListChanged()
+        {
+            SaveDataToPreferences();
+            ItemCollectionChanged?.Invoke(this, EventArgs.Empty);
+        }
+
+        private void CategoryListChanged()
+        {
+            SaveDataToPreferences();
+            CategoryCollectionChanged?.Invoke(this, EventArgs.Empty);
+        }
+
+        private void SaveDataToPreferences()
+        {
+            // Marshall all the data to strings.
+            List<string> categories = new List<string>();
+            foreach (Category c in Categories)
+            {
+                categories.Add(c.ToString());
+            }
+
+            List<string> items = new List<string>();
+            foreach (Item i in Items)
+            {
+                items.Add(i.ToString());
+            }
+
+            List<string> historyItems = new List<string>();
+            foreach (HistoryItem hi in History)
+            {
+                historyItems.Add(hi.ToString());
+            }
+
+            // Get the shared preferences editor and save all the data.
+            ISharedPreferencesEditor editor = _SharedPreferences.Edit();
+            editor.PutStringSet(CATEGORIES_KEY, categories);
+            editor.PutStringSet(ITEMS_KEY, items);
+            editor.PutStringSet(HISTORY_KEY, historyItems);
+            editor.Commit();
         }
     }
 }

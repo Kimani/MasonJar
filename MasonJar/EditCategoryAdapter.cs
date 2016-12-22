@@ -1,5 +1,6 @@
 // [Ready Design Corps] - [Mason Jar] - Copyright 2016
 
+using Android.Content;
 using Android.Views;
 using Android.Widget;
 using MasonJar.Common;
@@ -19,13 +20,13 @@ namespace MasonJar
         private ViewModel.Jar    _JarViewModel;
         private Java.Lang.String _NoCategoryDataItem = new Java.Lang.String("NoCategory");
         private CallbackSet      _Callbacks;
-        private LayoutInflater   _Inflater;
+        private EditActivity     _Parent;
 
-        public EditCategoryAdapter(ViewModel.Jar jarViewModel, CallbackSet callbacks, LayoutInflater inflater)
+        public EditCategoryAdapter(ViewModel.Jar jarViewModel, CallbackSet callbacks, EditActivity parent)
         {
             _JarViewModel = jarViewModel;
             _Callbacks = callbacks;
-            _Inflater = inflater;
+            _Parent = parent;
         }
 
         public override Java.Lang.Object GetItem(int position) { return (position == 0) ? _NoCategoryDataItem : GetCategory(position); }
@@ -34,24 +35,28 @@ namespace MasonJar
 
         public override View GetView(int position, View convertView, ViewGroup parent)
         {
+            LayoutInflater inflater = (LayoutInflater)_Parent.GetSystemService(Context.LayoutInflaterService);
             View resultView;
+
             if (position == 0)
             {
-                resultView = _Inflater.Inflate(Resource.Layout.EditSelectableCategory, null);
+                resultView = inflater.Inflate(Resource.Layout.EditSelectableCategory, null);
                 resultView.FindViewById<TextView>(Resource.Id.edit_selectable_category_title).Text = "No Category";
-                resultView.FindViewById<ImageView>(Resource.Id.edit_selectable_category_swatch).SetImageResource(Resource.Drawable.circle_dashed);
-                resultView.FindViewById<ImageView>(Resource.Id.edit_selectable_category_swatch).SetColorFilter(Android.Graphics.Color.Argb(0x3A, 0, 0, 0), Android.Graphics.PorterDuff.Mode.Multiply);
                 resultView.FindViewById<RelativeLayout>(Resource.Id.edit_selectable_category).Click += delegate { _Callbacks.CallbackItemCategorySelectionClicked(null); };
+
+                ImageView imageView = resultView.FindViewById<ImageView>(Resource.Id.edit_selectable_category_swatch);
+                ViewHelper.SetScaledImage(_Parent, imageView,Resource.Drawable.circle_dashed);
+                imageView.SetColorFilter(Android.Graphics.Color.Argb(0x3A, 0, 0, 0), Android.Graphics.PorterDuff.Mode.Multiply);
             }
             else
             {
                 var category = (ViewModel.Category)GetCategory(position);
                 var color = Android.Graphics.Color.Argb(255, category.Color.R, category.Color.G, category.Color.B);
 
-                resultView = _Inflater.Inflate(Resource.Layout.EditSelectableCategory, null);
+                resultView = inflater.Inflate(Resource.Layout.EditSelectableCategory, null);
                 resultView.FindViewById<TextView>(Resource.Id.edit_selectable_category_title).Text = category.Title;
-                resultView.FindViewById<ImageView>(Resource.Id.edit_selectable_category_swatch).SetColorFilter(color, Android.Graphics.PorterDuff.Mode.Multiply);
                 resultView.FindViewById<RelativeLayout>(Resource.Id.edit_selectable_category).Click += delegate { _Callbacks.CallbackItemCategorySelectionClicked(category); };
+                resultView.FindViewById<ImageView>(Resource.Id.edit_selectable_category_swatch).SetColorFilter(color, Android.Graphics.PorterDuff.Mode.Multiply);
             }
             return resultView;
         }

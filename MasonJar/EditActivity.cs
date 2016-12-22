@@ -41,7 +41,7 @@ namespace MasonJar
             ViewHelper.FixBackgroundRepeat(FindViewById<LinearLayout>(Resource.Id.maineditlayout));
 
             // Get the view model.
-            _JarViewModel = ViewModel.Jar.GetInstance();
+            _JarViewModel = ViewModel.Jar.GetInstance(this);
             _JarViewModel.CategoryCollectionChanged += CategoryOrItemListChanged;
             _JarViewModel.ItemCollectionChanged += CategoryOrItemListChanged;
 
@@ -65,13 +65,13 @@ namespace MasonJar
             callbacks.CallbackItemDeleteClicked            = delegate (ViewModel.Item item)         { ItemDeleteClicked(item); };
 
             // Set the list view content.
-            _Adapter = new EditAdapter(_JarViewModel, categoriesHeaderView, itemsHeaderView, callbacks, inflater);
+            _Adapter = new EditAdapter(this, _JarViewModel, categoriesHeaderView, itemsHeaderView, callbacks, inflater);
             ListAdapter = _Adapter;
             _Adapter.NotifyDataSetChanged();
             ListView.RequestFocus();
 
             // Setup the category selection overlay content.
-            _CategoryListAdapter = new EditCategoryAdapter(_JarViewModel, callbacks, inflater);
+            _CategoryListAdapter = new EditCategoryAdapter(_JarViewModel, callbacks, this);
             ListView categoryList = FindViewById<ListView>(Resource.Id.edit_overlay_item_category_list);
             categoryList.Adapter = _CategoryListAdapter;
             _CategoryListAdapter.NotifyDataSetChanged();

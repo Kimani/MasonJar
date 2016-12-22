@@ -23,7 +23,7 @@ namespace MasonJar
             ViewHelper.FixBackgroundRepeat(FindViewById<LinearLayout>(Resource.Id.maineditlayout));
 
             // Get the view model.
-            _JarViewModel = ViewModel.Jar.GetInstance();
+            _JarViewModel = ViewModel.Jar.GetInstance(this);
 
             // Set the list view content.
             HistoryAdapter adapter = new HistoryAdapter(_JarViewModel, (LayoutInflater)GetSystemService(Context.LayoutInflaterService));

@@ -65,7 +65,7 @@ namespace MasonJar
             ViewHelper.FixBackgroundRepeat(FindViewById<LinearLayout>(Resource.Id.mainlayout));
 
             // Get a starting set of sticks.
-            _JarViewModel = ViewModel.Jar.GetInstance();
+            _JarViewModel = ViewModel.Jar.GetInstance(this);
             _Sticks = _JarViewModel.GetSticks(MAX_STICK_COUNT);
 
             // Get UI elements and initialize them.
@@ -216,7 +216,8 @@ namespace MasonJar
             {
                 _KeyGroups[0].Group.Visibility = ViewStates.Visible;
                 _KeyGroups[0].Title.Text = "Random";
-                _KeyGroups[0].Swatch.SetImageResource(Resource.Drawable.random);
+
+                ViewHelper.SetScaledImage(this, _KeyGroups[0].Swatch, Resource.Drawable.random);
                 _KeyGroups[0].Swatch.SetColorFilter(Android.Graphics.Color.Argb(0xFF, 0xFF, 0xFF, 0xFF), Android.Graphics.PorterDuff.Mode.Multiply);
                 ++nextKey;
             }
@@ -225,8 +226,8 @@ namespace MasonJar
             {
                 _KeyGroups[nextKey].Group.Visibility = ViewStates.Visible;
                 _KeyGroups[nextKey].Title.Text = category.Title;
-                _KeyGroups[nextKey].Swatch.SetImageResource(Resource.Drawable.circle);
 
+                ViewHelper.SetScaledImage(this, _KeyGroups[nextKey].Swatch, Resource.Drawable.circle);
                 var color = Android.Graphics.Color.Argb(255, category.Color.R, category.Color.G, category.Color.B);
                 _KeyGroups[nextKey].Swatch.SetColorFilter(color, Android.Graphics.PorterDuff.Mode.Multiply);
                 ++nextKey;
@@ -244,14 +245,15 @@ namespace MasonJar
                 if (_Sticks[circleIndex].Random)
                 {
                     _JarCircles[circleIndex].Visibility = ViewStates.Visible;
-                    _JarCircles[circleIndex].SetImageResource(GetCircleResource(_Sticks.Count, circleIndex, true));
+
+                    ViewHelper.SetScaledImage(this, _JarCircles[circleIndex], GetCircleResource(_Sticks.Count, circleIndex, true));
                     _JarCircles[circleIndex].SetColorFilter(Android.Graphics.Color.Argb(0xFF, 0xFF, 0xFF, 0xFF), Android.Graphics.PorterDuff.Mode.Multiply);
                 }
                 else if (_Sticks[circleIndex].Category != null)
                 {
                     _JarCircles[circleIndex].Visibility = ViewStates.Visible;
-                    _JarCircles[circleIndex].SetImageResource(GetCircleResource(_Sticks.Count, circleIndex, false));
 
+                    ViewHelper.SetScaledImage(this, _JarCircles[circleIndex], GetCircleResource(_Sticks.Count, circleIndex, false));
                     var color = Android.Graphics.Color.Argb(255, _Sticks[circleIndex].Category.Color.R, 
                                                                  _Sticks[circleIndex].Category.Color.G, 
                                                                  _Sticks[circleIndex].Category.Color.B);
@@ -296,16 +298,17 @@ namespace MasonJar
         private void UpdateJarImages()
         {
             int stickCount = _Sticks.Count;
-            _JarImage.SetImageResource((stickCount == 0) ? Resource.Drawable.Jar_Empty :
-                                       (stickCount == 1) ? Resource.Drawable.Jar_Stick1 :
-                                       (stickCount == 2) ? Resource.Drawable.Jar_Stick2 :
-                                       (stickCount == 3) ? Resource.Drawable.Jar_Stick3 :
-                                                           Resource.Drawable.Jar_Stick4);
-            _JarHintImage.SetImageResource((stickCount == 0) ? Resource.Drawable.hit_empty :
-                                           (stickCount == 1) ? Resource.Drawable.hit_stick1 :
-                                           (stickCount == 2) ? Resource.Drawable.hit_stick2 :
-                                           (stickCount == 3) ? Resource.Drawable.hit_stick3 :
-                                                               Resource.Drawable.hit_stick4);
+
+            ViewHelper.SetScaledImage(this, _JarImage, ((stickCount == 0) ? Resource.Drawable.Jar_Empty :
+                                                        (stickCount == 1) ? Resource.Drawable.Jar_Stick1 :
+                                                        (stickCount == 2) ? Resource.Drawable.Jar_Stick2 :
+                                                        (stickCount == 3) ? Resource.Drawable.Jar_Stick3 :
+                                                                            Resource.Drawable.Jar_Stick4));
+            ViewHelper.SetScaledImage(this, _JarHintImage, ((stickCount == 0) ? Resource.Drawable.hit_empty :
+                                                            (stickCount == 1) ? Resource.Drawable.hit_stick1 :
+                                                            (stickCount == 2) ? Resource.Drawable.hit_stick2 :
+                                                            (stickCount == 3) ? Resource.Drawable.hit_stick3 :
+                                                                                Resource.Drawable.hit_stick4));
         }
 
         private void JarShakeComplete(object state)
@@ -334,7 +337,7 @@ namespace MasonJar
                 _ShakeTimer = new Timer(timerDelegate, null, 750, Timeout.Infinite);
 
                 // Show a shaking jar.
-                _JarImage.SetImageResource(_ShakeLeft ? Resource.Drawable.Jar_ShakeLeft : Resource.Drawable.Jar_ShakeRight);
+                ViewHelper.SetScaledImage(this, _JarImage, (_ShakeLeft ? Resource.Drawable.Jar_ShakeLeft : Resource.Drawable.Jar_ShakeRight));
                 _ShakeLeft = !_ShakeLeft;
 
                 // Clear the key and circles.
@@ -384,12 +387,6 @@ namespace MasonJar
         private void DiscardStick(object sender, EventArgs args)
         {
             _JarViewModel.MoveItemToHistory(_SelectedItem);
-
-            //_SelectionOverlay = FindViewById<RelativeLayout>(Resource.Id.main_overlay_stick_selection);
-            //_SelectionSwatch = FindViewById<ImageView>(Resource.Id.main_stick_selection_swatch);
-            //_SelectionContent = FindViewById<TextView>(Resource.Id.main_stick_selection_content);
-            //_SelectionCategory = FindViewById<TextView>(Resource.Id.main_stick_selection_category_title);
-
             DismissStickSelection();
         }
 
