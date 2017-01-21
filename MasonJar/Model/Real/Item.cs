@@ -69,7 +69,7 @@ namespace MasonJar.Model.Real
         public Item(Category category, string content)
         {
             _Category = category;
-            _Content = content;
+            _Content = content.Trim();
 
             if (_Category != null)
             {
@@ -98,6 +98,7 @@ namespace MasonJar.Model.Real
             {
                 _Content += " " + dataTokens[i];
             }
+            _Content = _Content.Trim();
         }
 
         public override string ToString()

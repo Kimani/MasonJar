@@ -31,14 +31,17 @@ namespace MasonJar.Model.Real
             if (dataTokens[0].Equals(CATEGORY_START_STRING))
             {
                 Color = System.Drawing.Color.FromArgb(int.Parse(dataTokens[1]));
-                CategoryTitle = dataTokens[2];
-                for (nextToken = 3; !nextToken.Equals(CATEGORY_END_STRING); ++nextToken)
+                CategoryTitle = dataTokens[2].Trim();
+                for (nextToken = 3; !dataTokens[nextToken].Equals(CATEGORY_END_STRING); ++nextToken)
                 {
                     CategoryTitle += " " + dataTokens[nextToken];
                 }
+                CategoryTitle = CategoryTitle.Trim();
             }
 
-            Timestamp = new DateTime(long.Parse(dataTokens[nextToken++]));
+            ++nextToken;
+            string timestampString = dataTokens[nextToken++];
+            Timestamp = new DateTime(long.Parse(timestampString));
 
             Content = dataTokens[nextToken++];
             for (; nextToken < dataTokens.Length; ++nextToken)
