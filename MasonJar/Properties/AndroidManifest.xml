@@ -1,6 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android" package="MasonJar.MasonJar" android:versionCode="1" android:versionName="1.0">
-    <uses-sdk android:minSdkVersion="19" />
-    <application android:label="MasonJar"
-                 android:largeHeap="true" />
+	<uses-sdk android:minSdkVersion="19" android:targetSdkVersion="27" />
+	<application android:label="MasonJar" android:largeHeap="true" />
 </manifest>
